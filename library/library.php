@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
         <title>Library</title>
@@ -23,36 +23,9 @@
         <label for="button2" unselectable>Date</label>
     </div>
 
-
-
-    <p>  | Filter by:</p>
-<select id="userRating" onchange="filterRating()">
-    
-          <option value="" disabled selected hidden>Rating</option>
-          <option value="g">G</option>
-          <option value="pg">PG</option>
-          <option value="R">R</option>
-          <option value="notRated">Not Rated</option>    
-          
-        </select> 
-
-<select id="userGenre" onchange="filterGenre()">
-          <option value="" disabled selected hidden>Genre</option>
-          <option value="comedy">Comedy</option>
-          <option value="romance">Romance</option>
-          <option value="horror">Horror</option>
-          <option value="drama">Drama</option>    
-          
-        </select> 
-</form>
-<br>
-</div>
-<h2>Original Array</h2>
- <p id="movielist"></p>
- <br>
- <h2>Sorted Array</h2>
- <p id="movielistsorted"></p>
- 
+      <p id="test1"></p>
+      <p id="test2"></p>
+      <p id="test3"></p>
 <script>
 var cboRating = document.getElementById('userRating');
 var userRating = cboRating.options[cboRating.selectedIndex].text;
@@ -93,16 +66,38 @@ var moviearray = '{ "movies" : [' +
                     
                     document.getElementById("movielistsorted").innerHTML = sortedarray;
 
-function filterRating(){
-    
-    
-}   
+var text;
+var arr = [];
 
 function filterGenre(){
     
     
 }
 
+// Test for local storage
+if (typeof(Storage) !== "undefined")
+{
+  // TODO: Put all local storage code here
+}
+else 
+{
+  document.getElementById("results1").innerHTML = "Sorry, Local Storage is not supported by your browser";
+}
+
+// Put the array in local storage
+localStorage.setItem("movieArray", text);
+
+// Get the array from local storage
+var object = localStorage.getItem("movieArray");
+// ***NOTE: obj is basically arr from above
+var obj = JSON.parse(object);
+
+var test = "";
+for (var i = 0; i < obj.length; i++) {
+  test += obj[i].title + "<br/>";
+}
+
+document.getElementById("test3").innerHTML = test;
 
 </script>
 
