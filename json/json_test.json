@@ -1,0 +1,29 @@
+[
+{
+    "name": "National Treasure",
+    "star": "Nicolas Cage",
+    "rated": "PG",
+    "type": "Action"   
+},
+{
+    "name": "Star Wars",
+    "star": "Mark Hamill",
+    "rated": "PG",
+    "type": "Action"
+    
+},
+{
+    "name": "Night at the Museum",
+    "star": "Ben Stiller",
+    "rated": "PG",
+    "type": "Comedy"
+    
+},
+{
+    "name": "Hugo",
+    "star": "Asa Butterfield",
+    "rated": "PG",
+    "type": "Drama"
+    
+}
+]
