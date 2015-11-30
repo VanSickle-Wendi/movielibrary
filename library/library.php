@@ -49,7 +49,7 @@ var moviearray = '{ "movies" : [' +
                 if (obj.movies[i].rating === "PG"){
                     sortedobj.movies[i]=obj.movies[i];
                     
-               //delete me. this is a test of githubfunctionality     
+               //Changing your line. this is a test of githubfunctionality     
                 }
             }
             var sortedarray = "";
