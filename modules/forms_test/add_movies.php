@@ -1,8 +1,5 @@
             <form method="post" action="json/json_test.json" id="addMovieForm">
-         <!--       <fieldset>
-                    <legend>
-                        Add New Movie:
-                    </legend> -->
+
                     <label for="title">Title:</label><br>
                     <input type="text" name="title" id="title" size="40"><br>
                     
@@ -24,13 +21,12 @@
                        <option value="blank"></option> 
                        <option value="g">G</option>                
                        <option value="pg">PG</option>
-                       <option value="pg">PG-13</option>                
+                       <option value="pg-13">PG-13</option>                
                        <option value="r">R</option>
                        <option value="notRated">Not Rated</option>
                     </select><br><br>
  
                     <button type="button" onclick="">Submit</button><br>
-               <!-- </fieldset> -->
             </form><br>
 
 
