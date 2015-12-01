@@ -9,6 +9,11 @@
 <body>
         <h1 class="title">Movie Library</h1>
         <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/nav.php'; ?>
+
+      <p id="test1"></p>
+      <p id="test2"></p>
+      <p id="test3"></p>        
+        
 <h2>Browse your movies </h2>
 <div class="browsefilter">
     
@@ -23,9 +28,6 @@
         <label for="button2" unselectable>Date</label>
     </div>
 
-      <p id="test1"></p>
-      <p id="test2"></p>
-      <p id="test3"></p>
 <script>
 var cboRating = document.getElementById('userRating');
 var userRating = cboRating.options[cboRating.selectedIndex].text;
@@ -100,7 +102,8 @@ for (var i = 0; i < obj.length; i++) {
 document.getElementById("test3").innerHTML = test;
 
 </script>
-
+    <!-- Ensuring that Javascript runs ------------------------------->
+        <script type="text/javascript" src="/javascript/javascript.js"></script>
 </body>
 </html>
 

@@ -15,7 +15,8 @@
      <!-- Content for viewing Movie Library -------------------------->
      <div id="movieLibrary">
        <h3>Movie Library</h3> 
-       <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/library_test/library.php'; ?>        <script>
+       <?php include $_SERVER['DOCUMENT_ROOT'].'/library/library_test.php'; ?>        
+       <script>
            function clearDivs() {
               document.getElementById('addMovie').style.display = "none";
               document.getElementById('searchResults').style.display = "none";
@@ -25,7 +26,7 @@
      <!-- Content for Adding New Movies ------------------------------>
      <div id="addMovie">
        <h3>Add Movies</h3>
-       <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/forms_test/add_movies.php'; ?>
+       <?php include $_SERVER['DOCUMENT_ROOT'].'/forms/add_movies_test.php'; ?>
      </div>
     
      <!-- Content for Search results ---------------------------------->

@@ -5,10 +5,13 @@
         <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/head.php'; ?>
     </head>
     <body>
-     <h1 class="title">Movie Library Home</h1>        
+    <div class="container">        
+     <h1 class="title">Movie Library</h1> 
+    <!-- Navigation ------------------------------------------------>     
         <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/nav.php'; ?>
     
-	
+    <div class="mainContent">
+      
 		<!--creates input field(TG)-->
 	<form>
         Search: <textarea id="search" rows="1" >Enter the barcode or name of the movie you'd like to search</textarea>
@@ -121,6 +124,11 @@ Some how we'll have to figure out how to get this to update when the user adds a
 <a href="default.asp">
   <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
 </a><br>
+
+    </div> <!-- End mainContent -->
+   </div> <!-- End Container -->        
+    <!-- Ensuring that Javascript runs ------------------------------->
+    <script type="text/javascript" src="/javascript/javascript.js"></script>  
 </body>
 </html>
 
