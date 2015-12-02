@@ -4,7 +4,7 @@
         <title>Home | Movie App</title>
         <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/head.php'; ?>
     </head>
-    <body>
+    <body onload="load()">
     <div class="container">        
      <h1 class="title">Movie Library</h1> 
     <!-- Navigation ------------------------------------------------>     
@@ -124,6 +124,10 @@ Some how we'll have to figure out how to get this to update when the user adds a
 <a href="default.asp">
   <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
 </a><br>
+
+Test 1: <p id="test1"></p>
+Test 2: <p id="test2"></p>
+Test 3: <p id="test3"></p>
 
     </div> <!-- End mainContent -->
    </div> <!-- End Container -->        

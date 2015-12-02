@@ -184,3 +184,24 @@ div.mainContent {
   -moz-border-radius-bottomright: 4px;
   border-bottom-right-radius: 4px;
 }
+table, th, td {
+	border: 1px solid white;
+	background-color: #eeeeee;
+}
+table {
+	color: #069;
+	border-collapse: collapse;
+	//width: 100%;
+}
+tr {
+
+}
+td, th {
+	padding: 10px;
+}
+
+tr:hover {
+	color: #90ee90;
+	color: black;
+	background-color: #fff; 
+}
