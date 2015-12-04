@@ -8,6 +8,9 @@ var arr = [];
 var movieArray;
 
 //send to search through ajax
+/***********************************************************************************
+ * 
+ **********************************************************************************/
 function searchInput(str){
 	//Sending the input to search.php and retrieving the output...
        
@@ -46,7 +49,9 @@ Movie.prototype.display = function() {
 };
 
 /***********************************************************************************
- * 
+ * Setup
+ * Called on document load. Sets up the page by calling loadSample, 
+ * getDataFromLocalStorage, displayMovies and putInLocalStorage.
  **********************************************************************************/
 function setup() {
 	loadSample();
@@ -55,9 +60,11 @@ function setup() {
 	putInLocalStorage();
 }
 
-// The function to load the movies from local storage into the array
 /***********************************************************************************
- * 
+ * Load Sample
+ * Loads a series of movies into local storage
+ * ***NOTE: This will eventually need to be eliminated so it doesn't overwrite
+ * what we put into local storage...
  **********************************************************************************/
 function loadSample() {
 	// Instantiate some movies and call display()
@@ -82,7 +89,8 @@ function loadSample() {
 }
 
 /***********************************************************************************
- * 
+ * Get Data From Local Storage
+ * Retrieves the movie array from local storage
  **********************************************************************************/
 function getDataFromLocalStorage() {
 
@@ -108,7 +116,8 @@ function getDataFromLocalStorage() {
 
 // Display all of the movies in the movie array
 /***********************************************************************************
- * 
+ * Display Movies
+ * Displays all of the movies in the movie array in a formatted table
  **********************************************************************************/
 function displayMovies() {
 	var test = "<table><tr><th>Title</th><th>Year</th><th>Genre</th><th>Rating</th></tr>";
@@ -123,7 +132,8 @@ function displayMovies() {
 
 // Adds a movie to the array 
 /***********************************************************************************
- * 
+ * Add Movie
+ * Adds a single movie object to the array of movies
  **********************************************************************************/
 function addMovie() {
 
@@ -131,7 +141,8 @@ function addMovie() {
 
 // Sort movies
 /***********************************************************************************
- * 
+ * Sort Movies
+ * Sorts the movies in the array by any one of a number of parameters
  **********************************************************************************/
 function sortMovies() {
 
@@ -139,7 +150,9 @@ function sortMovies() {
 
 // Put the array (with any changes made in the session) in local storage
 /***********************************************************************************
- * 
+ * Put In Local Storage
+ * Puts the array (with any modifications made) back into local storage for the 
+ * next use
  **********************************************************************************/
 function putInLocalStorage() {
 	text = JSON.stringify(movieArray);
