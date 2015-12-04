@@ -11,19 +11,19 @@ var movieArray;
 /***********************************************************************************
  * 
  **********************************************************************************/
-function searchInput(str){
-	//Sending the input to search.php and retrieving the output...
-       
-	var request=new XMLHttpRequest();
-	request.onreadystatechange=function()
-  {
-  if (request.readyState==4 && request.status==200 )
+function searchInput(str) {
+    //Sending the input to search.php and retrieving the output...
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function ()
     {
-    document.getElementById("results").innerHTML=request.responseText;
+        if (request.readyState == 4 && request.status == 200)
+        {
+            document.getElementById("results").innerHTML = request.responseText;
+        }
     }
-  }
-	request.open("GET","search.php?str="+str,true);//Sending input using get method...
-	request.send();
+    request.open("GET", "search.php?str=" + str, true);//Sending input using get method...
+    request.send();
 }
 
 /************************************************************************************
@@ -33,10 +33,10 @@ function searchInput(str){
  * the title, year, rating (G, PG, etc.) and the genre. 
  * **********************************************************************************/
 function Movie(title, year, rating, genre) {
-	this.title = title;
-	this.year = year;
-	this.rating = rating;
-	this.genre = genre;
+    this.title = title;
+    this.year = year;
+    this.rating = rating;
+    this.genre = genre;
 }
 
 /*************************************************************************************
@@ -45,9 +45,9 @@ function Movie(title, year, rating, genre) {
  * For displaying the content of a movie
  * ***NOTE: May not be used... TBD
  * *********************************************************************************/
-Movie.prototype.display = function() {
-	text = this.title + " " + this.year;
-	return text;
+Movie.prototype.display = function () {
+    text = this.title + " " + this.year;
+    return text;
 };
 
 /***********************************************************************************
@@ -57,10 +57,10 @@ Movie.prototype.display = function() {
  * getDataFromLocalStorage, displayMovies and putInLocalStorage.
  **********************************************************************************/
 function setup() {
-	loadSample();
-	getDataFromLocalStorage();
-	displayMovies();
-	putInLocalStorage();
+    loadSample();
+    getDataFromLocalStorage();
+    displayMovies();
+    putInLocalStorage();
 }
 
 /***********************************************************************************
@@ -71,28 +71,28 @@ function setup() {
  * what we put into local storage...
  **********************************************************************************/
 function loadSample() {
-	
-        // Instantiate some movies and call display()
-	var movie1 = new Movie("Star Wars", "2015", "PG", "Sci-Fi");
-	movie1.display();
 
-	var movie2 = new Movie("Indiana Jones", "1995", "PG", "Action");
-	movie2.display();
+    // Instantiate some movies and call display()
+    var movie1 = new Movie("Star Wars", "2015", "PG", "Sci-Fi");
+    movie1.display();
 
-	var movie3 = new Movie("Pride and Prejudice", "2006", "PG", "Romance");
-	movie2.display();
+    var movie2 = new Movie("Indiana Jones", "1995", "PG", "Action");
+    movie2.display();
 
-	// Push to the array
-	arr.push(movie1);
-	arr.push(movie2);
-	arr.push(movie3);
+    var movie3 = new Movie("Pride and Prejudice", "2006", "PG", "Romance");
+    movie2.display();
 
-        text = JSON.stringify(arr);
-	localStorage.setItem("movieArray", text);
-	// For testing purposes:
-	// Stringify a created object
-	//text = JSON.stringify(arr);
-	//document.getElementById("test2").innerHTML = text;
+    // Push to the array
+    arr.push(movie1);
+    arr.push(movie2);
+    arr.push(movie3);
+
+    text = JSON.stringify(arr);
+    localStorage.setItem("movieArray", text);
+    // For testing purposes:
+    // Stringify a created object
+    //text = JSON.stringify(arr);
+    //document.getElementById("test2").innerHTML = text;
 }
 
 /***********************************************************************************
@@ -102,22 +102,21 @@ function loadSample() {
  **********************************************************************************/
 function getDataFromLocalStorage() {
 
-	// Test for local storage
-	if (typeof(Storage) !== "undefined")
-	{
- 		// Put the array in local storage
-		localStorage.setItem("movieArray", text);
+    // Test for local storage
+    if (typeof (Storage) !== "undefined")
+    {
+        // Put the array in local storage
+        localStorage.setItem("movieArray", text);
 
-		// Get the array from local storage
-		var object = localStorage.getItem("movieArray");
-		// ***NOTE: movieArray is basically arr from above
-		movieArray = JSON.parse(object);
-	}
-	else 
-	{
-		// TODO: Come up with a more elegant solution here
-   	  document.getElementById("results1").innerHTML = "Sorry, Local Storage is not supported by your browser";
-	}
+        // Get the array from local storage
+        var object = localStorage.getItem("movieArray");
+        // ***NOTE: movieArray is basically arr from above
+        movieArray = JSON.parse(object);
+    } else
+    {
+        // TODO: Come up with a more elegant solution here
+        document.getElementById("results1").innerHTML = "Sorry, Local Storage is not supported by your browser";
+    }
 }
 
 /***********************************************************************************
@@ -126,13 +125,13 @@ function getDataFromLocalStorage() {
  * Displays all of the movies in the movie array in a formatted table
  **********************************************************************************/
 function displayMovies() {
-	var test = "<table><tr><th>Title</th><th>Year</th><th>Genre</th><th>Rating</th></tr>";
-	for (var i = 0; i < movieArray.length; i++) {
-		test += "<tr>"
-	    test += "<td>" + movieArray[i].title + "</td><td>" + movieArray[i].year + "</td><td>" + movieArray[i].rating + "</td><td>" + movieArray[i].genre + "</td></tr>";
-	}
-	document.getElementById("movieTable").innerHTML = test;
-        document.getElementById("test35").innerHTML = test;
+    var test = "<table><tr><th>Title</th><th>Year</th><th>Genre</th><th>Rating</th></tr>";
+    for (var i = 0; i < movieArray.length; i++) {
+        test += "<tr>"
+        test += "<td>" + movieArray[i].title + "</td><td>" + movieArray[i].year + "</td><td>" + movieArray[i].rating + "</td><td>" + movieArray[i].genre + "</td></tr>";
+    }
+    document.getElementById("movieTable").innerHTML = test;
+    document.getElementById("test35").innerHTML = test;
 }
 
 /***********************************************************************************
@@ -160,8 +159,8 @@ function sortMovies() {
  * next use
  **********************************************************************************/
 function putInLocalStorage() {
-	text = JSON.stringify(movieArray);
-	localStorage.setItem("movieArray", text);
+    text = JSON.stringify(movieArray);
+    localStorage.setItem("movieArray", text);
 }
 /* End Movie Library Page (Div) */
 
@@ -170,36 +169,36 @@ function putInLocalStorage() {
 /***********************************************************************************
  * 
  **********************************************************************************/
-           function clearDivsSearchResults() {
-              document.getElementById('addMovie').style.display = "none"; 
-              document.getElementById('movieLibrary').style.display = "none";
-              document.getElementById('browseMovies').style.display = "none";              
-           }
-           
+function clearDivsSearchResults() {
+    document.getElementById('addMovie').style.display = "none";
+    document.getElementById('movieLibrary').style.display = "none";
+    document.getElementById('browseMovies').style.display = "none";
+}
+
 /***********************************************************************************
  * 
  **********************************************************************************/
-           function clearDivsAddMovies() {
-              document.getElementById('searchResults').style.display = "none";             
-              document.getElementById('movieLibrary').style.display = "none";
-              document.getElementById('browseMovies').style.display = "none";              
-           }
-           
+function clearDivsAddMovies() {
+    document.getElementById('searchResults').style.display = "none";
+    document.getElementById('movieLibrary').style.display = "none";
+    document.getElementById('browseMovies').style.display = "none";
+}
+
 /***********************************************************************************
  * 
  **********************************************************************************/
-           function clearDivsMovieLibrary() {
-              document.getElementById('searchResults').style.display = "none";               
-              document.getElementById('addMovie').style.display = "none";
-              document.getElementById('browseMovies').style.display = "none";              
-           }
-                
+function clearDivsMovieLibrary() {
+    document.getElementById('searchResults').style.display = "none";
+    document.getElementById('addMovie').style.display = "none";
+    document.getElementById('browseMovies').style.display = "none";
+}
+
 /***********************************************************************************
  * 
- **********************************************************************************/            
-           function clearDivsBrowseMovies() {
-              document.getElementById('searchResults').style.display = "none";               
-              document.getElementById('addMovie').style.display = "none";
-              document.getElementById('movieLibrary').style.display = "none";              
-           }
-/* End clearDivs functions */  
+ **********************************************************************************/
+function clearDivsBrowseMovies() {
+    document.getElementById('searchResults').style.display = "none";
+    document.getElementById('addMovie').style.display = "none";
+    document.getElementById('movieLibrary').style.display = "none";
+}
+/* End clearDivs functions */
