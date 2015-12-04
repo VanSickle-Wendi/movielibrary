@@ -3,12 +3,12 @@
      <h2>Movie Library</h2>
       Test 1: <p id="test1"></p>
       Test 2: <p id="test2"></p>
-      Test 3: <p id="test3"></p>      
+      Test 3: <p id="test35"></p>      
 
 <!-- Amy's Code ---------------------------------------------------------- -->
 
 <script>
-
+/*
 var text;
 var arr = [];
 
@@ -68,12 +68,10 @@ for (var i = 0; i < obj.length; i++) {
 }
 
 document.getElementById("test3").innerHTML = test;
-
+*/
 </script>
 <!-- End Amy's Code ------------------------------------------------- -->
 
-    <!-- Ensuring that Javascript runs ------------------------------->
-        <script type="text/javascript" src="/javascript/javascript.js"></script>
 </body>
 </html>
 
