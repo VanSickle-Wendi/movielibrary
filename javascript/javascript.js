@@ -103,26 +103,26 @@ function putInLocalStorage() {
 
 /* Test Functions for clearing other divs. This may be included in AJAX code*/
            function clearDivsSearchResults() {
+              document.getElementById('addMovie').style.display = "none"; 
               document.getElementById('movieLibrary').style.display = "none";
-              document.getElementById('addMovies').style.display = "none";
-              document.getElementById('tiffany').style.display = "none";              
-           }
-           
-           function clearDivsMovieLibrary() {
-              document.getElementById('addMovies').style.display = "none";
-              document.getElementById('searchResults').style.display = "none";
-              document.getElementById('tiffany').style.display = "none";              
+              document.getElementById('browseMovies').style.display = "none";              
            }
            
            function clearDivsAddMovies() {
+              document.getElementById('searchResults').style.display = "none";             
               document.getElementById('movieLibrary').style.display = "none";
-              document.getElementById('searchResults').style.display = "none";
-              document.getElementById('tiffany').style.display = "none";              
+              document.getElementById('browseMovies').style.display = "none";              
            }
-                   
+           
+           function clearDivsMovieLibrary() {
+              document.getElementById('searchResults').style.display = "none";               
+              document.getElementById('addMovie').style.display = "none";
+              document.getElementById('browseMovies').style.display = "none";              
+           }
+                            
            function clearDivsBrowseMovies() {
-              document.getElementById('addMovies').style.display = "none";
-              document.getElementById('searchResults').style.display = "none";
-              document.getElementById('tiffany').style.display = "none";              
+              document.getElementById('searchResults').style.display = "none";               
+              document.getElementById('addMovie').style.display = "none";
+              document.getElementById('movieLibrary').style.display = "none";              
            }
 /* End clearDivs functions */  

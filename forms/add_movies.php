@@ -1,4 +1,5 @@
         <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen"/>
+        <h2>Add Movies</h2>
 
 <!-- Made form more responsive based on Tiffany's (table) form -->        
         <form method="post" action="json/json_test.json" id="addMoviesForm">
