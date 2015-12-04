@@ -11,14 +11,12 @@
         <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/nav.php'; ?>
     
     <div class="mainContent">
+        
+        
     <!-- Content for Search results ---------------------------------->        
      <div id="searchResults">        
        <h3>Search Movies</h3>       
-		<!--creates input field(TG)-->
-	<form>
-        Search: <textarea id="search" rows="1" >Enter the barcode or name of the movie you'd like to search</textarea>
-        <input type="button" value="Search" onclick="search()">
-      </form>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/search/search.php'; ?>
      </div>   
     
      <!-- Content for Adding New Movies ------------------------------>  
@@ -33,26 +31,6 @@
         <?php include $_SERVER['DOCUMENT_ROOT'].'/library/library.php'; ?> 
      </div>  
        
-     
-     
-<!--creates images that are links to the users movie information. 
-Some how we'll have to figure out how to get this to update when the user adds a move. (TG) -->
-<a href="default.asp">
-  <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
-</a>
-<a href="default.asp">
-  <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
-</a><br>
-<a href="default.asp">
-  <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
-</a>
-<a href="default.asp">
-  <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
-</a><br>
-</div><!-- End tiffany div ------------------------- -->
-
-
-
     </div> <!-- End mainContent -->
    </div> <!-- End Container -->        
     <!-- Ensuring that Javascript runs ------------------------------->
