@@ -10,14 +10,6 @@
     <h1 class="title">Movie Library</h1>   
     <!-- Navigation ------------------------------------------------>
     <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/nav.php'; ?>
-    <!-- Temporary Navigation -------------------------------------->
-    <h2>Temporary Navigation</h2>
-      <ul id="nav">
-        <li><a href="/test_home_page/home_page.php">Test Home</a></li>
-        <li><a href="/forms/add_movies.php">Add Movies</a></li>
-        <li><a href="/library/library.php">Movie Library</a></li>
-        <li><input type="text" placeholder="Search" ></li> 
-      </ul>
     <div class="mainContent">
      <!-- Content for viewing Movie Library -------------------------->
      <div id="movieLibrary">

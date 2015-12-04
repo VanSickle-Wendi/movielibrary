@@ -1,6 +1,6 @@
-    <link href="/css/styletest.css" type="text/css" rel="stylesheet" media="screen"/>
+<link href="/css/styletest.css" type="text/css" rel="stylesheet" media="screen"/>
 <!-- Made form more responsive based on Tiffany's (table) form -->        
-<form method="post" action="json/json_test.json" id="addMoviesForm">
+                    <form method="post" action="json/json_test.json" id="addMoviesForm">
                     <label for="title">Title:</label><br>
                     <input type="text" name="title" id="title" size="35"><br>
                     
@@ -28,7 +28,8 @@
                     </select><br><br>
  
                     <button type="button" onclick="">Submit</button><br>
-</form><br>
+                    </form><br>
+
             
 <!--  Adding Amy's (table) style to addMovies form and making responsive-->
 <style>
