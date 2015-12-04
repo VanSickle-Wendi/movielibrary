@@ -85,11 +85,11 @@ div.mainContent {
 	color: #90ee90;
 	background-color: #fff; 
 }
-/* What does this code go with ..........................*/
+/* Nav Bar Title  ..........................*/
 .title {
 	padding: 20px;
 	padding-left: 50px;
-	color: #069;
+	color: #red;
 }
 
 .style-1 input[type="text"] {
