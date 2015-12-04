@@ -256,3 +256,24 @@ div.mainContent {
         font-size: 1.2em;
 }
 }
+/* Table Styling for Movie Table*/
+table, th, td {
+	border: 1px solid white;
+	background-color: #eeeeee;
+}
+table {
+	color: #069;
+	border-collapse: collapse;
+	//width: 100%;
+}
+tr {
+
+}
+td, th {
+	padding: 10px;
+}
+tr:hover {
+	color: #90ee90;
+	color: black;
+	background-color: #fff; 
+}
