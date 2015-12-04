@@ -112,7 +112,6 @@ function getDataFromLocalStorage() {
 	}
 }
 
-// Display all of the movies in the movie array
 /***********************************************************************************
  * Display Movies
  * Displays all of the movies in the movie array in a formatted table
@@ -128,7 +127,6 @@ function displayMovies() {
 	document.getElementById("test3").innerHTML = test;
 }
 
-// Adds a movie to the array 
 /***********************************************************************************
  * Add Movie
  * Adds a single movie object to the array of movies
@@ -137,7 +135,6 @@ function addMovie() {
 
 }
 
-// Sort movies
 /***********************************************************************************
  * Sort Movies
  * Sorts the movies in the array by any one of a number of parameters
@@ -146,7 +143,6 @@ function sortMovies() {
 
 }
 
-// Put the array (with any changes made in the session) in local storage
 /***********************************************************************************
  * Put In Local Storage
  * Puts the array (with any modifications made) back into local storage for the 
