@@ -97,21 +97,19 @@ function getDataFromLocalStorage() {
 	// Test for local storage
 	if (typeof(Storage) !== "undefined")
 	{
- 	 // TODO: Put all local storage code here
+ 		 // Put the array in local storage
+		localStorage.setItem("movieArray", text);
+
+		// Get the array from local storage
+		var object = localStorage.getItem("movieArray");
+		// ***NOTE: movieArray is basically arr from above
+		movieArray = JSON.parse(object);
 	}
 	else 
 	{
 		// TODO: Come up with a more elegant solution here
    	  document.getElementById("results1").innerHTML = "Sorry, Local Storage is not supported by your browser";
 	}
-
-	// Put the array in local storage
-	localStorage.setItem("movieArray", text);
-
-	// Get the array from local storage
-	var object = localStorage.getItem("movieArray");
-	// ***NOTE: movieArray is basically arr from above
-	movieArray = JSON.parse(object);
 }
 
 // Display all of the movies in the movie array
