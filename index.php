@@ -32,6 +32,8 @@
          <?php include $_SERVER['DOCUMENT_ROOT'].'/browse/browse.php'; ?> 
      </div>     
        
+     <p id="test3">Movies:</p>
+    
     </div> <!-- End mainContent -->
    </div> <!-- End Container -->        
     <!-- Ensuring that Javascript runs ------------------------------->
