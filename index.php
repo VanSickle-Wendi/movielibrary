@@ -19,7 +19,14 @@
       </form>
                 
        <h3>Add Movies</h3>                
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/forms/add_movies.php'; ?>                
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/forms/add_movies.php'; ?> 
+       
+       <h3>Movie Library</h3>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/library/library.php'; ?> 
+       
+       
+       
+       
 <!--use AJAX to sort and filter the movies without a page refresh-->
 <h2>Browse your movies </h2>
 <div class="browsefilter">

@@ -1,18 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-        <title>Library</title>
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/head.php'; ?>
-        <link href="/css/style.css" property="stylesheet" type="text/css" rel="stylesheet">
-</head>
-
-<body>
-        <h1 class="title">Movie Library</h1>
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/nav.php'; ?>
-
-      <p id="test1"></p>
-      <p id="test2"></p>
-      <p id="test3"></p>        
+      Test 1: <p id="test1"></p>
+      Test 2: <p id="test2"></p>
+      Test 3: <p id="test3"></p>      
 <!-- Brendon's Code  --------------------------------------------------- -->         
 <h2>Browse your movies </h2>
 <div class="browsefilter">
@@ -204,9 +192,7 @@
 </script>
 <!-- End Brendon's Code -------------------------------------------------- -->
 <!-- Amy's Code ---------------------------------------------------------- -->
-      Test 1: <p id="test1"></p>
-      Test 2: <p id="test2"></p>
-      Test 3: <p id="test3"></p>
+
 <script>
 
 var text;
