@@ -28,6 +28,7 @@ function searchInput(str){
 
 /************************************************************************************
  * Movie
+ * Author: Amy Williams
  * A Class used to contain the information for a specific movie. A movie contains
  * the title, year, rating (G, PG, etc.) and the genre. 
  * **********************************************************************************/
@@ -40,6 +41,7 @@ function Movie(title, year, rating, genre) {
 
 /*************************************************************************************
  * Movie display method
+ * Author: Amy Williams
  * For displaying the content of a movie
  * ***NOTE: May not be used... TBD
  * *********************************************************************************/
@@ -50,6 +52,7 @@ Movie.prototype.display = function() {
 
 /***********************************************************************************
  * Setup
+ * Author: Amy Williams
  * Called on document load. Sets up the page by calling loadSample, 
  * getDataFromLocalStorage, displayMovies and putInLocalStorage.
  **********************************************************************************/
@@ -62,6 +65,7 @@ function setup() {
 
 /***********************************************************************************
  * Load Sample
+ * Author: Amy Williams
  * Loads a series of movies into local storage
  * ***NOTE: This will eventually need to be eliminated so it doesn't overwrite
  * what we put into local storage...
@@ -90,6 +94,7 @@ function loadSample() {
 
 /***********************************************************************************
  * Get Data From Local Storage
+ * Author: Amy Williams
  * Retrieves the movie array from local storage
  **********************************************************************************/
 function getDataFromLocalStorage() {
@@ -114,6 +119,7 @@ function getDataFromLocalStorage() {
 
 /***********************************************************************************
  * Display Movies
+ * Author: Amy Williams
  * Displays all of the movies in the movie array in a formatted table
  **********************************************************************************/
 function displayMovies() {
@@ -129,6 +135,7 @@ function displayMovies() {
 
 /***********************************************************************************
  * Add Movie
+ * Author: Amy Williams
  * Adds a single movie object to the array of movies
  **********************************************************************************/
 function addMovie() {
@@ -137,6 +144,7 @@ function addMovie() {
 
 /***********************************************************************************
  * Sort Movies
+ * Author: Amy Williams
  * Sorts the movies in the array by any one of a number of parameters
  **********************************************************************************/
 function sortMovies() {
@@ -145,6 +153,7 @@ function sortMovies() {
 
 /***********************************************************************************
  * Put In Local Storage
+ * Author: Amy Williams
  * Puts the array (with any modifications made) back into local storage for the 
  * next use
  **********************************************************************************/
