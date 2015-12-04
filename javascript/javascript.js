@@ -88,8 +88,8 @@ function loadSample() {
 
 	// For testing purposes:
 	// Stringify a created object
-	text = JSON.stringify(arr);
-	document.getElementById("test2").innerHTML = text;
+	//text = JSON.stringify(arr);
+	//document.getElementById("test2").innerHTML = text;
 }
 
 /***********************************************************************************
