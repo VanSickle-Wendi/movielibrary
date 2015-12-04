@@ -6,6 +6,7 @@ body {
 	font-family: Arial;
 	background-color: #fdfdfd;
 }
+/* Body Container ................................*/
 div.container {
     position: relative; 
     max-width: 960px;
@@ -21,6 +22,7 @@ div.container {
 div.mainContent {
     padding: 1em;    
 }
+/* Navigation Bar ...............................*/
 #nav {
 	width: 100%;
 	float: left;
@@ -47,11 +49,11 @@ div.mainContent {
         height: 28px;
         
 }
-
 #nav li a:hover {
 	color: #90ee90;
 	background-color: #fff; 
 }
+/* What does this code go with ..........................*/
 .title {
 	padding: 20px;
 	padding-left: 50px;
@@ -73,7 +75,7 @@ div.mainContent {
     -moz-user-select: none;
     user-select: none;
 }
-
+/* Brendon's Browse your Movies on library.php */
 .browsefilter{
     background-color:#f2f2f2;
     padding: 0px 15px 8px;
@@ -183,7 +185,7 @@ div.mainContent {
   -webkit-border-bottom-right-radius: 4px;
   -moz-border-radius-bottomright: 4px;
   border-bottom-right-radius: 4px;
-}
+}/*End Brendosn's Browse you movie code ...................*/
 /*  Adding Amy's (table) style to form and making responsive */
 /* Form style for Phone ....................................... */ 
 @media only screen and (max-width: 600px) {   

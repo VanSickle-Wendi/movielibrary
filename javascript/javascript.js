@@ -99,4 +99,14 @@ function putInLocalStorage() {
 	text = JSON.stringify(movieArray);
 	localStorage.setItem("movieArray", text);
 }
-// End Movie Library Page (Div)
+/* End Movie Library Page (Div) */
+
+/* Test Function for clearing other divs. This may be included in AJAX code*/
+           function clearDivs() {
+              document.getElementById('movieLibrary').style.display = "none";
+              document.getElementById('searchResults').style.display = "none";
+              document.getElementById('tiffany').style.display = "none";              
+           }
+/* End clearDivs function */  
+
+

@@ -1,4 +1,6 @@
-       <!-- Made form more responsive based on Tiffany's (table) form -->        
+        <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen"/>
+
+<!-- Made form more responsive based on Tiffany's (table) form -->        
         <form method="post" action="json/json_test.json" id="addMoviesForm">
         <label for="title">Title:</label><br>
         <input type="text" name="title" id="title" size="35"><br>
@@ -27,6 +29,8 @@
         </select><br><br>
  
         <button type="button" onclick="">Submit</button><br>
-        </form><br>                   
+        </form><br>     
+        
+      <button type="button" onclick="clearDivs()">Example of hiding divs</button><br>  
     </body>
 </html>

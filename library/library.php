@@ -1,7 +1,7 @@
       Test 1: <p id="test1"></p>
       Test 2: <p id="test2"></p>
       Test 3: <p id="test3"></p>      
-<!-- Brendon's Code  --------------------------------------------------- -->         
+<!-- Brendon's Code  --------------------------------------------------- --> 
 <h2>Browse your movies </h2>
 <div class="browsefilter">
     
