@@ -1,4 +1,5 @@
 <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen"/>
+<script type="text/javascript" src="javascript/javascript.js"></script>
 
        <h2>Search Movies</h2>
 <!--creates input field(TG)-->
