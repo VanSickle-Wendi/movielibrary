@@ -89,10 +89,6 @@ function loadSample() {
 
     text = JSON.stringify(arr);
     localStorage.setItem("movieArray", text);
-    // For testing purposes:
-    // Stringify a created object
-    //text = JSON.stringify(arr);
-    //document.getElementById("test2").innerHTML = text;
 }
 
 /***********************************************************************************
