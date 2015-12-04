@@ -27,33 +27,6 @@
         </select><br><br>
  
         <button type="button" onclick="">Submit</button><br>
-        </form><br>
-                    
-<!--  Adding Amy's (table) style to addMovies form and making responsive-->
-<style>
-/* Form style for Phone --------------------------------------   */ 
-@media only screen and (max-width: 600px) {   
-form {
-	border: 1px solid #069;
-	background-color: #eeeeee;
-	padding: 10px;  
-	color: #069;   
-	width: 300px;        
-} 
-}
-/*............Styling for the tablet/desktop Navigation Here.........*/
-@media only screen and (min-width: 601px) {
-form {
-	border: 1px solid #069;
-	background-color: #eeeeee;
-	padding: 20px;  
-	color: #069;   
-	width: 50%;        
-}
-label {
-        font-size: 1.2em;
-}
-}
-</style>                    
+        </form><br>                   
     </body>
 </html>
