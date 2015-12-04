@@ -4,7 +4,7 @@
         <title>Home | Movie App</title>
         <?php include $_SERVER['DOCUMENT_ROOT'].'/modules/head.php'; ?>
     </head>
-    <body onload="load()">
+    <body onload="load(); setup();">
     <div class="container">        
      <h1 class="title">Movie Library</h1> 
     <!-- Navigation ------------------------------------------------>     
