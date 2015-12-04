@@ -53,6 +53,38 @@ div.mainContent {
 	color: #90ee90;
 	background-color: #fff; 
 }
+/* Nav2 Bar ...............................*/
+#nav2 {
+	width: 100%;
+        height: 49px;
+	float: left;
+	margin: 0 0 3em 0;
+	padding: 0;
+	list-style-type: none;
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #ccc; 
+	border-top: 1px solid #ccc; 
+}
+#nav2 li {
+	float: left; 
+}
+#nav2 li p {
+	display: block;
+        padding: 2px 15px 4px 15px;
+	font-weight: bold;
+	color: #999;
+	border-right: 1px solid #ccc; 
+}
+#nav2 li input {
+        display: block;
+        height: 28px;
+        margin-top: 8px;
+        
+}
+#nav2 li p:hover {
+	color: #90ee90;
+	background-color: #fff; 
+}
 /* What does this code go with ..........................*/
 .title {
 	padding: 20px;

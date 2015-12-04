@@ -31,6 +31,5 @@
         <button type="button" onclick="">Submit</button><br>
         </form><br>     
         
-      <button type="button" onclick="clearDivs()">Example of hiding divs</button><br>  
     </body>
 </html>
