@@ -71,7 +71,8 @@ function setup() {
  * what we put into local storage...
  **********************************************************************************/
 function loadSample() {
-	// Instantiate some movies and call display()
+	
+        // Instantiate some movies and call display()
 	var movie1 = new Movie("Star Wars", "2015", "PG", "Sci-Fi");
 	movie1.display();
 
@@ -86,6 +87,8 @@ function loadSample() {
 	arr.push(movie2);
 	arr.push(movie3);
 
+        text = JSON.stringify(arr);
+	localStorage.setItem("movieArray", text);
 	// For testing purposes:
 	// Stringify a created object
 	//text = JSON.stringify(arr);
@@ -102,7 +105,7 @@ function getDataFromLocalStorage() {
 	// Test for local storage
 	if (typeof(Storage) !== "undefined")
 	{
- 		 // Put the array in local storage
+ 		// Put the array in local storage
 		localStorage.setItem("movieArray", text);
 
 		// Get the array from local storage
@@ -127,10 +130,9 @@ function displayMovies() {
 	for (var i = 0; i < movieArray.length; i++) {
 		test += "<tr>"
 	    test += "<td>" + movieArray[i].title + "</td><td>" + movieArray[i].year + "</td><td>" + movieArray[i].rating + "</td><td>" + movieArray[i].genre + "</td></tr>";
-	  //test += movieArray[i].display();
 	}
-
-	document.getElementById("test3").innerHTML = test;
+	document.getElementById("movieTable").innerHTML = test;
+        document.getElementById("test35").innerHTML = test;
 }
 
 /***********************************************************************************
