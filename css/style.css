@@ -221,7 +221,7 @@ div.mainContent {
 /*  Adding Amy's (table) style to form and making responsive */
 /* Form style for Phone ....................................... */ 
 @media only screen and (max-width: 600px) {   
-form {
+#addMoviesForm {
 	border: 1px solid #069;
 	background-color: #eeeeee;
 	padding: 10px;  
@@ -231,14 +231,14 @@ form {
 }
 /* Form style for tablet/desktop .................................*/
 @media only screen and (min-width: 601px) {
-form {
+#addMoviesForm {
 	border: 1px solid #069;
 	background-color: #eeeeee;
 	padding: 20px;  
 	color: #069;   
 	width: 50%;        
 }
-label {
+.addMoviesForm {
         font-size: 1.2em;
 }
 }

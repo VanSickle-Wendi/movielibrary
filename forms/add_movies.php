@@ -2,13 +2,13 @@
 
 <!-- Made form more responsive based on Tiffany's (table) form -->        
         <form method="post" action="json/json_test.json" id="addMoviesForm">
-        <label for="title">Title:</label><br>
+        <label for="title" class="addMoviesForm">Title:</label><br>
         <input type="text" name="title" id="title" size="35"><br>
                     
-        <label for="star">Star:</label><br>
+        <label for="star" class="addMoviesForm">Star:</label><br>
         <input type="text" name="star" id="star" size="35"><br>
                     
-        <label for="genre">Genre:</label><br>
+        <label for="genre" class="addMoviesForm">Genre:</label><br>
         <select name="genre">
         <option value="blank"></option> 
         <option value="action">Action</option>                
@@ -18,7 +18,7 @@
         <option value="romance">Romance</option>
         </select><br>
                     
-        <label for="rating">Rating:</label><br>
+        <label for="rating" class="addMoviesForm">Rating:</label><br>
         <select name="genre">
         <option value="blank"></option> 
         <option value="g">G</option>                

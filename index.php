@@ -33,39 +33,8 @@
         <?php include $_SERVER['DOCUMENT_ROOT'].'/library/library.php'; ?> 
      </div>  
        
-  
      
-<!-- Are we using any of this code? ----------------------- -->     
-<div id="tiffany">      
-<!--use AJAX to sort and filter the movies without a page refresh-->
-<h2>Browse your movies </h2>
-<div class="browsefilter">
-    Sort:
-<input type="button" value="Alpha" onclick="sortAlpha()">
-<input type="button" value="Date" onclick="sortDate()">
-<!--this could toggle between alphabetical and by date of submission-->
-    Filter by:
-<select onchange="filterRating()">
-    
-          <option value="" disabled selected hidden>Rating</option>
-          <option value="g">G</option>
-            <option value="pg">PG</option>
-          <option value="R">R</option>
-          <option value="notRated">Not Rated</option>    
-          
-        </select> 
-
-<select onchange="filterGenre()">
-          <option value="" disabled selected hidden>Genre</option>
-          <option value="comedy">Comedy</option>
-            <option value="romance">Romance</option>
-          <option value="horror">Horror</option>
-          <option value="drama">Drama</option>    
-          
-        </select> 
-<br>
-</div>
-
+     
 <!--creates images that are links to the users movie information. 
 Some how we'll have to figure out how to get this to update when the user adds a move. (TG) -->
 <a href="default.asp">
