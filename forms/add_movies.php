@@ -6,8 +6,8 @@
         <label for="title" class="addMoviesForm">Title:</label><br>
         <input type="text" name="title" id="title" size="35"><br>
                     
-        <label for="star" class="addMoviesForm">Star:</label><br>
-        <input type="text" name="star" id="star" size="35"><br>
+        <label for="year" class="addMoviesForm">Year:</label><br>
+        <input type="text" name="year" id="year" size="4"><br>
                     
         <label for="genre" class="addMoviesForm">Genre:</label><br>
         <select name="genre">
