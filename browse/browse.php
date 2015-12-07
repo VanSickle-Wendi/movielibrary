@@ -6,15 +6,15 @@
 <form class="browseform">
     <p>Sort:</p>
     <div class="tg-button">
-        <input type="radio" name="tg" id="button1" onchange="loadMovies()" checked>
+        <input type="radio" name="tg" id="button1" onchange="sortMovies()" checked>
         <label for="button1" unselectable>Alpha</label>
     </div>
     <div class="tg-button">
-        <input type="radio" name="tg" id="button2" onchange="loadMovies()">
-        <label for="button2" unselectable>Date</label>
+        <input type="radio" name="tg" id="button2" onchange="sortMovies()">
+        <label for="button2" unselectable>Year</label>
     </div>
     <p>  | Filter by:</p>
-<select id="userRating" onchange="loadMovies()">
+<select id="userRating" onchange="sortMovies()">
     
           <option value="Rating">Rating</option>
           <option value="G">G</option>
@@ -25,7 +25,7 @@
           
         </select> 
 
-<select id="userGenre" onchange="loadMovies()">
+<select id="userGenre" onchange="sortMovies()">
           <option value="Genre" >Genre</option>
           <option value="Comedy">Comedy</option>
           <option value="Romance">Romance</option>
@@ -45,147 +45,7 @@
  <p id="movielistsorted"></p>
 
 <script>
-   
-    function loadMovies(){
-            //remove sortedArray from local storage if it exists
-            
-          
-            var cboRating = document.getElementById('userRating');
-            var userRating = cboRating.options[cboRating.selectedIndex].value;
-            //window.alert(userRating);
-            var cboGenre = document.getElementById('userGenre');
-            var userGenre = cboGenre.options[cboGenre.selectedIndex].value;
-            var moviearray = '{ "movies" : [' +
-                        '{ "name":"Star Wars" , "rating":"G" , "genre":"Comedy", "date":"April 19, 2006 18:44:20"},' +
-                        '{ "name":"Indiana Jones" , "rating":"PG" , "genre":"Romance", "date":"January 19, 2006 15:44:20"},' +
-                        '{ "name":"Indiana Jones 2" , "rating":"G" , "genre":"Romance", "date":"March 19, 2006 15:44:20"},' +
-                        '{ "name":"Indiana Jones 3" , "rating":"PG" , "genre":"Comedy", "date":"May 12, 2006 15:44:20"},' +
-                        '{ "name":"Pride and Prejudice" , "rating":"PG-13" , "genre":"Drama", "date":"March 12, 2006 15:44:20"},' +
-                        '{ "name":"Jumanji" , "rating":"PG" , "genre":"Horror", "date":"March 13, 2006 15:44:20"},' +
-                        '{ "name":"Back to the Future" , "rating":"R" , "genre":"Comedy", "date":"December 14, 2006 15:44:20"},' +
-                        '{ "name":"Gone with the Wind" , "rating":"Not Rated" , "genre":"Comedy", "date":"April 15, 2006 15:44:20"},' +
-                        '{ "name":"Terminator" , "rating":"R" , "genre":"Drama", "date":"February 16, 2006 15:44:20"},' +
-                        '{ "name":"My Wedding" , "rating":"Not Rated" , "genre":"Romance", "date":"September 17, 2006 15:44:20"},' +
-                        '{ "name":"Mission Impossible" , "rating":"PG-13" , "genre":"Drama", "date":"March 18, 2006 15:44:20"},' +
-                        '{ "name":"Jaws" , "rating":"PG" , "genre":"Horror", "date":"November 1, 2007 18:44:20"} ]}';
-                        var obj = JSON.parse(moviearray);
-                
-                
-                
-                       
-                     //window.alert(moviearray);
-                        var origarray = "";
-                        var filteredobj = {"movies":[]};
-                        for (var i = j = 0; i < obj.movies.length; i++) {
-                            origarray += obj.movies[i].name + " - ";
-                            origarray += obj.movies[i].rating + " - ";
-                            origarray += obj.movies[i].genre + " - ";
-                            origarray += obj.movies[i].date + "<br>";
-
-                            
-                                  
-                            filteredobj.movies[j++]=obj.movies[i];
-                            
-                            
-                     //sort by date if button2 is checked, otherwise sort Alphabetically     
-                        if (document.getElementById('button2').checked){
-                            
-                            filteredobj.movies = obj.movies.sort(sortByDate);
-                        }
-                        else{
-                            filteredobj.movies = obj.movies.sort(sortByName);
-                            
-                        }    
-                            
-                            
-                             
-                        }
-                            //puts sorted array into local storage
-                        localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
-
-                   //Filter by Rating
-                        if (userRating !== "Rating"){
-                            var moviearray = localStorage.getItem("sortedArray");
-                           
-                            var obj = JSON.parse(moviearray);
-
-                            var array = "";
-                            var filteredobj = {"movies":[]};
-                            for (var i = j = 0; i < obj.movies.length; i++) {
-                                array += obj.movies[i].name + " - ";
-                                array += obj.movies[i].rating + " - ";
-                                array += obj.movies[i].genre + " - ";
-                                array += obj.movies[i].date + "<br>";
-
-                                    if (obj.movies[i].rating === userRating){
-                                    filteredobj.movies[j++]=obj.movies[i];
-
-                                    }                         
-                            }
-                            document.getElementById('userRating').options[0].text = "None";
-                            localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
-                        }
-                        
-                   //Filter by Genre
-                        if (userGenre !== "Genre"){
-                            var moviearray = localStorage.getItem("sortedArray");
-                           
-                            var obj = JSON.parse(moviearray);
-
-                            var array = "";
-                            var filteredobj = {"movies":[]};
-                            for (var i = j = 0; i < obj.movies.length; i++) {
-                                array += obj.movies[i].name + " - ";
-                                array += obj.movies[i].rating + " - ";
-                                array += obj.movies[i].genre + " - ";
-                                array += obj.movies[i].date + "<br>";
-
-                                    if (obj.movies[i].genre === userGenre){
-                                    filteredobj.movies[j++]=obj.movies[i];
-
-                                    }                         
-                            }
-                            document.getElementById('userGenre').options[0].text = "None";
-                            localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
-                        }
-
-                  // extracts sorted array for viewing
-                       var sortedarray = "";
-                        for (var i = 0; i < filteredobj.movies.length; i++) {
-                            sortedarray += filteredobj.movies[i].name + " - ";
-                            sortedarray += filteredobj.movies[i].rating + " - ";
-                            sortedarray += filteredobj.movies[i].genre + " - ";
-                            sortedarray += filteredobj.movies[i].date + "<br>";
-                        }
-                 function sortByName(a, b) {
-                       var sortStatus = 0;
-
-                        if (a.name < b.name) {
-                            sortStatus = -1;
-                        } else if (a.name > b.name) {
-                                sortStatus = 1;
-                        }
-                        return sortStatus;
-                        
-                    }
-                function sortByDate(a, b) {
-                        
-                        return new Date(b.date) - new Date(a.date);
-                    }    
-
-                        
-                      
-                                //document.getElementById("movielist").innerHTML = origarray;
-
-                                document.getElementById("movielistsorted").innerHTML = sortedarray;
-                  
-                   
-                }
-                    
-                     
-
-                    
-    window.onload=loadMovies; 
+ 
     
 </script>
 <!-- End Brendon's Code -------------------------------------------------- -->

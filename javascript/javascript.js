@@ -141,11 +141,83 @@ function addMovie() {
 
 /***********************************************************************************
  * Sort Movies
- * Author: Amy Williams
+ * Author: Amy Williams, Brendon Moore
  * Sorts the movies in the array by any one of a number of parameters
  **********************************************************************************/
 function sortMovies() {
+    //window.alert("in sorting function");
+    var origarray= "";
+    var filteredobj = [];
+    var cboRating = document.getElementById('userRating');
+    var userRating = cboRating.options[cboRating.selectedIndex].value;
+    var cboGenre = document.getElementById('userGenre');
+    var userGenre = cboGenre.options[cboGenre.selectedIndex].value;
+    
+    //sort by year if button2(Alpha/Date Toggle) is checked, otherwise sort Alphabetically  
+    if (document.getElementById('button2').checked){
+                            
+                            filteredobj = movieArray.sort(sortByYear);
+                        }
+                        else{
+                            filteredobj = movieArray.sort(sortByTitle);
+                            
+                        } 
+                        
+                        
+    //puts sorted array into local storage
+    localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
 
+    //Filter by Rating
+    if (userRating !== "Rating"){
+        
+        var moviearray = localStorage.getItem("sortedArray");
+
+        var obj = JSON.parse(moviearray);
+
+        
+        var filteredobj = [];
+             for (var i = j = 0; i < obj.length; i++) {
+                    if (obj[i].rating === userRating){
+                    filteredobj[j++]=obj[i];
+
+                     }                         
+             }
+             document.getElementById('userRating').options[0].text = "None";
+             localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
+         }
+
+                                     
+                        
+        function sortByTitle(a, b) {
+             var sortStatus = 0;
+
+                            if (a.title < b.title) {
+                                sortStatus = -1;
+                            } else if (a.title > b.title) {
+                                    sortStatus = 1;
+                            }
+                            return sortStatus;
+        }
+        function sortByYear(a, b) {
+                        
+                        return new Date(b.year) - new Date(a.year);
+                    } 
+    
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+    var test2 = "<table><tr><th>Title</th><th>Year</th><th>Rating</th><th>Genre</th></tr>";
+    for (var i = 0; i < filteredobj.length; i++) {
+        test2 += "<tr>";
+        test2 += "<td>" + filteredobj[i].title + "</td><td>" + filteredobj[i].year + "</td><td>" + filteredobj[i].rating + "</td><td>" + filteredobj[i].genre + "</td></tr>";
+    }
+    document.getElementById("movieTable2").innerHTML = test2;
+    
 }
 
 /***********************************************************************************
