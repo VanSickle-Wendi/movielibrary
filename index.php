@@ -6,7 +6,7 @@
     </head>
     <body onload="setup();">
         <div class="container">        
-            <h1 class="title">Movie Library</h1> 
+            <h1 class="title"><a href="/index.php">Movie Library</a></h1> 
             <!-- Navigation ------------------------------------------------>     
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/nav.php'; ?>
 
