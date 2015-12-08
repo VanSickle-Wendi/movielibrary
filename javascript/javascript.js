@@ -170,9 +170,9 @@ function sortMovies() {
     //Filter by Rating
     if (userRating !== "Rating"){
         
-        var moviearray = localStorage.getItem("sortedArray");
+        var moviearray2 = localStorage.getItem("sortedArray");
 
-        var obj = JSON.parse(moviearray);
+        var obj = JSON.parse(moviearray2);
 
         
         var filteredobj = [];
@@ -185,7 +185,24 @@ function sortMovies() {
              document.getElementById('userRating').options[0].text = "None";
              localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
          }
+    //Filter by Genre
+    if (userGenre !== "Genre"){
+        
+        var moviearray3 = localStorage.getItem("sortedArray");
 
+        var obj = JSON.parse(moviearray3);
+
+        
+        var filteredobj = [];
+             for (var i = j = 0; i < obj.length; i++) {
+                    if (obj[i].genre === userGenre){
+                    filteredobj[j++]=obj[i];
+
+                     }                         
+             }
+             document.getElementById('userGenre').options[0].text = "None";
+             localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
+         }
                                      
                         
         function sortByTitle(a, b) {
@@ -216,7 +233,7 @@ function sortMovies() {
         test2 += "<tr>";
         test2 += "<td>" + filteredobj[i].title + "</td><td>" + filteredobj[i].year + "</td><td>" + filteredobj[i].rating + "</td><td>" + filteredobj[i].genre + "</td></tr>";
     }
-    document.getElementById("movieTable2").innerHTML = test2;
+    document.getElementById("movieTable").innerHTML = test2;
     
 }
 
