@@ -235,7 +235,10 @@ function putInLocalStorage() {
 /* Test Functions for clearing other divs. This may be included in AJAX code*/
 
 /***********************************************************************************
- * 
+ * Display Search Results alone
+ * Author: Wendi Van Sickle
+ * Clears all divs on index page except search results 
+ *
  **********************************************************************************/
 function clearDivsSearchResults() {
     document.getElementById('addMovie').style.display = "none";
@@ -244,7 +247,10 @@ function clearDivsSearchResults() {
 }
 
 /***********************************************************************************
- * 
+ * Display Add Movie Form alone
+ * Author: Wendi Van Sickle
+ * Clears all divs on index page except add movie form 
+ *
  **********************************************************************************/
 function clearDivsAddMovies() {
     document.getElementById('searchResults').style.display = "none";
@@ -253,7 +259,10 @@ function clearDivsAddMovies() {
 }
 
 /***********************************************************************************
- * 
+ * Display Movie Library alone
+ * Author: Wendi Van Sickle
+ * Clears all divs on index page except movie library form 
+ *
  **********************************************************************************/
 function clearDivsMovieLibrary() {
     document.getElementById('searchResults').style.display = "none";
@@ -262,6 +271,9 @@ function clearDivsMovieLibrary() {
 }
 
 /***********************************************************************************
+ * Display Browse Movies form alone
+ * Author: Wendi Van Sickle
+ * Clears all divs on index page except browse movies form 
  * 
  **********************************************************************************/
 function clearDivsBrowseMovies() {

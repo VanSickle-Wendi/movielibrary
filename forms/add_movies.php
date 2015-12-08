@@ -2,7 +2,7 @@
         <h2>Add Movies</h2>
 
 <!-- Made form more responsive based on Tiffany's (table) form -->        
-        <form method="post" action="json/json_test.json" id="addMoviesForm">
+        <form method="post" id="addMoviesForm" name="addMoviesForm">
         <label for="title" class="addMoviesForm">Title:</label><br>
         <input type="text" name="title" id="title" size="35"><br>
                     
@@ -29,8 +29,23 @@
         <option value="notRated">Not Rated</option>
         </select><br><br>
  
-        <button type="button" onclick="">Submit</button><br>
+        <button type="button" onclick="addMovies()">Submit</button><br>
         </form><br>     
         
+        <p id="test"></p>
+        <p id="jsonStringified"></p>
+
+
+<script>
+    var formData = new FormData();
+
+function addMovies() {
+    var addMoviesForm = document.querySelector('form');
+    formData = new FormData(addMoviesForm);
+    document.getElementById("test").innerHTML = formData;    
+}
+
+</script>
+
     </body>
 </html>

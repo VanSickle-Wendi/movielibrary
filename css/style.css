@@ -85,12 +85,37 @@ div.mainContent {
 	color: #90ee90;
 	background-color: #fff; 
 }
+
+/* Animated Buttons (Wendi) ................................*/
+
+
+
+
+
 /* Nav Bar Title  ..........................*/
 .title {
 	padding: 20px;
 	padding-left: 50px;
-	color: #069;
+	color: #069;           
 }
+
+/* Title Animation Wendi ...................*/  
+.title {
+       animation-duration: 2s;
+       animation-name: slidein;
+}       
+       @keyframes slidein {
+       from {
+       margin-left: 70%;
+       width: 300%;
+       }
+
+       to {
+       margin-left: 0%;
+       width: 100%;
+       }
+}/*End title animation */
+
 
 .style-1 input[type="text"] {
   padding: 10px;
