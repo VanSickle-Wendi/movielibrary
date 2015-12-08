@@ -4,13 +4,13 @@
 <!-- Made form more responsive based on Tiffany's (table) form -->        
         <form method="post" id="addMoviesForm" name="addMoviesForm">
         <label for="title" class="addMoviesForm">Title:</label><br>
-        <input type="text" name="title" id="title" size="35"><br>
+        <input type="text" name="title" id="addTitle" size="35"><br>
                     
         <label for="year" class="addMoviesForm">Year:</label><br>
-        <input type="text" name="year" id="year" size="4"><br>
+        <input type="text" name="year" id="addYear" size="4"><br>
                     
         <label for="genre" class="addMoviesForm">Genre:</label><br>
-        <select name="genre">
+        <select name="genre"  id="addGenre">
         <option value="blank"></option> 
         <option value="Comedy">Comedy</option>
         <option value="Romance">Romance</option>
@@ -20,7 +20,7 @@
         </select><br>
                     
         <label for="rating" class="addMoviesForm">Rating:</label><br>
-        <select name="rating">
+        <select name="rating"  id="addRating">
         <option value="blank"></option> 
         <option value="G">G</option>
         <option value="PG">PG</option>
@@ -44,7 +44,55 @@ if someone wants to figure out how to pull the form data to the array and local 
 function addMovies() {
     var addMoviesForm = document.querySelector('form');
     formData = new FormData(addMoviesForm);
-    document.getElementById("test").innerHTML = formData;    
+    document.getElementById("test").innerHTML = formData;   
+    
+    
+/***********************************************************************************
+ * Add Movies
+ * Author:  Brendon Moore
+ * Add a movie to the array of movies
+ **********************************************************************************/    
+    //Need to add 'if' statements to check for null values and return a message if true for any variable
+        
+    var cboRating = document.getElementById('addRating');
+    var addRating = cboRating.options[cboRating.selectedIndex].value;
+    var cboGenre = document.getElementById('addGenre');
+    var addGenre = cboGenre.options[cboGenre.selectedIndex].value;
+    var addTitle = document.getElementById("addTitle").value;
+    var addYear = document.getElementById('addYear').value;
+ 
+ //check if array is empty
+   if (JSON.parse(localStorage.getItem("movieArray")) === null) {
+    
+        var savedArray = [];
+    }
+    //open exising array
+    else {
+    var savedArray = JSON.parse(localStorage.getItem("movieArray"));
+        }
+   
+  
+   //test for duplictes and then add new item
+   if ( !(name in savedArray)){
+   savedArray.push({
+       title: addTitle,
+       year: addYear,
+       genre: addGenre,
+       rating: addRating
+        });
+   }
+   
+ localStorage.setItem("movieArray", JSON.stringify(savedArray));
+ document.getElementById("addTitle").value = "";
+ document.getElementById("addYear").value = "";
+ document.getElementById('addGenre').options[0].text = "";
+ document.getElementById('addRating').options[0].text = "";
+
+ 
+ 
+ 
+ 
+ 
 }
 
 </script>
