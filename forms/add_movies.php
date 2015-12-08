@@ -12,21 +12,21 @@
         <label for="genre" class="addMoviesForm">Genre:</label><br>
         <select name="genre">
         <option value="blank"></option> 
-        <option value="action">Action</option>                
-        <option value="comedy">Comedy</option>
-        <option value="drama">Drama</option>
-        <option value="horror">Horror</option>
-        <option value="romance">Romance</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Romance">Romance</option>
+        <option value="Action">Action</option>
+        <option value="Drama">Drama</option>    
+        <option value="Sci-Fi">Sci-Fi</option>
         </select><br>
                     
         <label for="rating" class="addMoviesForm">Rating:</label><br>
-        <select name="genre">
+        <select name="rating">
         <option value="blank"></option> 
-        <option value="g">G</option>                
-        <option value="pg">PG</option>
-        <option value="pg-13">PG-13</option>                
-        <option value="r">R</option>
-        <option value="notRated">Not Rated</option>
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
+        <option value="Not Rated">Not Rated</option> 
         </select><br><br>
  
         <button type="button" onclick="addMovies()">Submit</button><br>
