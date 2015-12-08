@@ -33,8 +33,6 @@
         </form><br>     
         
         <p id="test"></p>
-        <p id="jsonStringified"></p>
-
 
 <script>
     var formData = new FormData();
@@ -46,6 +44,3 @@ function addMovies() {
 }
 
 </script>
-
-    </body>
-</html>

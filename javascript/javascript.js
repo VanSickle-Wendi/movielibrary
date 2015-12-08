@@ -240,12 +240,24 @@ function putInLocalStorage() {
  * Clears all divs on index page except search results 
  *
  **********************************************************************************/
-function clearDivsSearchResults() {
-    document.getElementById('addMovie').style.display = "none";
-    document.getElementById('movieLibrary').style.display = "none";
-    document.getElementById('browseMovies').style.display = "none";
-}
 
+function clearDivsSearchResults() {
+    document.getElementById('searchResults').style.display = "initial";    
+    document.getElementById('addMovie').style.display = "initial";
+    document.getElementById('movieLibrary').style.display = "initial";
+    document.getElementById('browseMovies').style.display = "initial";     
+    var searchPage = new XMLHttpRequest();
+    searchPage.onreadystatechange = function () {
+      if (searchPage.readyState ===4 && searchPage.status ===200) {
+        document.getElementById('addMovie').style.display = "none";
+        document.getElementById('movieLibrary').style.display = "none";
+        document.getElementById('browseMovies').style.display = "none";  
+        document.getElementById('searchResults').innerHTML = searchPage.responseText;
+      }
+    };
+    searchPage.open('GET', '../search/search.php', true);
+      searchPage.send();
+}
 /***********************************************************************************
  * Display Add Movie Form alone
  * Author: Wendi Van Sickle
@@ -253,11 +265,22 @@ function clearDivsSearchResults() {
  *
  **********************************************************************************/
 function clearDivsAddMovies() {
-    document.getElementById('searchResults').style.display = "none";
-    document.getElementById('movieLibrary').style.display = "none";
-    document.getElementById('browseMovies').style.display = "none";
-}
-
+    document.getElementById('searchResults').style.display = "initial";    
+    document.getElementById('addMovie').style.display = "initial";
+    document.getElementById('movieLibrary').style.display = "initial";
+    document.getElementById('browseMovies').style.display = "initial";      
+    var addMoviesPage = new XMLHttpRequest();
+    addMoviesPage.onreadystatechange = function () {
+      if (addMoviesPage.readyState ===4 && addMoviesPage.status ===200) { 
+      document.getElementById('searchResults').style.display = "none";
+      document.getElementById('movieLibrary').style.display = "none";
+      document.getElementById('browseMovies').style.display = "none";    
+      document.getElementById('addMovie').innerHTML = addMoviesPage.responseText;
+      }
+    };
+    addMoviesPage.open('GET', '../forms/add_movies.php', true);
+      addMoviesPage.send();
+    }
 /***********************************************************************************
  * Display Movie Library alone
  * Author: Wendi Van Sickle
@@ -265,20 +288,43 @@ function clearDivsAddMovies() {
  *
  **********************************************************************************/
 function clearDivsMovieLibrary() {
+    document.getElementById('searchResults').style.display = "initial";   
+    document.getElementById('addMovie').style.display = "initial";
+    document.getElementById('movieLibrary').style.display = "initial";
+    document.getElementById('browseMovies').style.display = "initial";     
+    var movieLibraryPage = new XMLHttpRequest();
+    movieLibraryPage.onreadystatechange = function () {
+      if (movieLibraryPage.readyState ===4 && movieLibraryPage.status ===200) { 
     document.getElementById('searchResults').style.display = "none";
     document.getElementById('addMovie').style.display = "none";
-    document.getElementById('browseMovies').style.display = "none";
-}
-
-/***********************************************************************************
+    document.getElementById('browseMovies').style.display = "none"; 
+      document.getElementById('movieLibrary').innerHTML = movieLibraryPage.responseText;
+      }
+    };
+    movieLibraryPage.open('GET', '../library/library.php', true);
+      movieLibraryPage.send();
+}   
+ /***********************************************************************************
  * Display Browse Movies form alone
  * Author: Wendi Van Sickle
  * Clears all divs on index page except browse movies form 
  * 
  **********************************************************************************/
 function clearDivsBrowseMovies() {
+    document.getElementById('searchResults').style.display = "initial";   
+    document.getElementById('addMovie').style.display = "initial";
+    document.getElementById('movieLibrary').style.display = "initial";
+    document.getElementById('browseMovies').style.display = "initial";     
+    var browsePage = new XMLHttpRequest();
+    browsePage.onreadystatechange = function () {
+      if (browsePage.readyState ===4 && browsePage.status ===200) { 
     document.getElementById('searchResults').style.display = "none";
     document.getElementById('addMovie').style.display = "none";
     document.getElementById('movieLibrary').style.display = "none";
-}
+    document.getElementById('browseMovies').innerHTML = browsePage.responseText;
+      }
+    };
+    browsePage.open('GET', '../browse/browse.php', true);
+      browsePage.send();
+}    
 /* End clearDivs functions */

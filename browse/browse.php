@@ -50,5 +50,3 @@
 </script>
 <!-- End Brendon's Code -------------------------------------------------- -->
 
-    <!-- Ensuring that Javascript runs ------------------------------->
-        <script type="text/javascript" src="/javascript/javascript.js"></script>
