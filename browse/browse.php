@@ -29,24 +29,13 @@
           <option value="Genre" >Genre</option>
           <option value="Comedy">Comedy</option>
           <option value="Romance">Romance</option>
-          <option value="Horror">Horror</option>
+          <option value="Action">Action</option>
           <option value="Drama">Drama</option>    
-          
+          <option value="Sci-Fi">Sci-Fi</option> 
         </select> 
 </form>
 <br>
+
 </div>
-<!--<h2>Original Array</h2>
- <p id="movielist"></p>
- <br>
-
- <h2>Sorted Array</h2>
---> 
- <p id="movielistsorted"></p>
-
-<script>
- 
-    
-</script>
 <!-- End Brendon's Code -------------------------------------------------- -->
 

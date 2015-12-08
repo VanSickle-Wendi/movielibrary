@@ -34,9 +34,7 @@
 
                 <p id="movieTable">Movie Table:</p>
                 <br>
-                <!-- Testing Sorting of table. Will be removed eventually - Brendon --------->
-                <p id="movieTable2">Sorted Table:</p>
-            </div> <!-- End mainContent -->
+                </div> <!-- End mainContent -->
         </div> <!-- End Container -->        
         <script>setup();</script>
     </body>
