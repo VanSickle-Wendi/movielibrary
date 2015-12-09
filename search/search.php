@@ -5,7 +5,7 @@
  <script type="text/javascript" src="javascript/javascript.js"></script>
        
 <input type="text" id="search" value="Search">
-<button onclick="myFunction()">Try it</button>
+<button onclick="myFunction()">Search Your Movie Database</button>
 
 <p id="demo"></p>
 
