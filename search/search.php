@@ -2,10 +2,12 @@
 
        <h2>Search Movies</h2>
 <!--creates input field(TG)-->
-	<form id="searchForm">
-        Search: <textarea id="search" rows="1" >Enter the barcode or name of the movie you'd like to search</textarea>
-        <input type="button" value="Search" onclick="search()">
-        <input type="text" placeholder="Search" onKeyUp="searchInput(this.value)" >
-        <p><p id="results">&nbsp;</p>
-      </form>
+ <script type="text/javascript" src="javascript/javascript.js"></script>
+       
+<input type="text" id="search" value="Search">
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+
 
