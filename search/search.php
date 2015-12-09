@@ -2,7 +2,7 @@
 
        
 
-         <script type="text/javascript" src="javascript.js"></script>
+          <script type="text/javascript" src="/javascript/javascript.js"></script>
        
 <body>
 
