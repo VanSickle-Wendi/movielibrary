@@ -11,27 +11,27 @@
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/nav.php'; ?>
 
             <div class="mainContent">
-
-                <!-- Content for Search results ---------------------------------->        
-                <div id="searchResults">               
-                    <?php include $_SERVER['DOCUMENT_ROOT'] . '/search/search.php'; ?>
-                </div>   
-
+                
+                <!-- Content for viewing Movie Library -------------------------->
+                <div id="movieLibrary">     
+                    <?php include $_SERVER['DOCUMENT_ROOT'] . '/library/library.php'; ?> 
+                </div>                
+   
                 <!-- Content for Adding New Movies ------------------------------>  
                 <div id="addMovie">              
                     <?php include $_SERVER['DOCUMENT_ROOT'] . '/forms/add_movies.php'; ?> 
                 </div>  
 
-                <!-- Content for viewing Movie Library -------------------------->
-                <div id="movieLibrary">     
-                    <?php include $_SERVER['DOCUMENT_ROOT'] . '/library/library.php'; ?> 
-                </div>
-
                 <!-- Content for Browsing Movie Library -------------------------->
                 <div id="browseMovies">     
                     <?php include $_SERVER['DOCUMENT_ROOT'] . '/browse/browse.php'; ?> 
-                </div>     
-
+                </div>
+                
+                <!-- Content for Search results ---------------------------------->        
+                <div id="searchResults">               
+                    <?php include $_SERVER['DOCUMENT_ROOT'] . '/search/search.php'; ?>
+                </div>
+                
                 <p id="movieTable">Movie Table:</p>
                 <br>
                 </div> <!-- End mainContent -->

@@ -57,9 +57,62 @@ div.mainContent {
 
 /* Animated Buttons (Wendi) ................................*/
 
+#nav {
+	width: 100%;
+        height: 34px;
+	float: left;
+	margin: 0 0 3em 0;
+	padding: 0;
+	list-style-type: none;
+	background-color: #f2f2f2;
+	border-bottom: 1px solid #ccc; 
+	border-top: 1px solid #ccc; 
+}
+#nav li {
+	float: left; 
+	border-right: 1px solid #ccc;         
+}
+#nav li img {
+	display: block;
+        padding: 2px 15px 4px 15px;
+	font-weight: bold;
+	color: #999;
 
+}
+/*#nav li input {
+        display: block;
+        height: 28px;
+        margin-top: 8px;
+        
+}*/
+#nav li img:hover {
+	background-color: #fff; 
+        border-bottom: 1px solid #ccc;
+}
 
+       img {
+       animation-duration: 1.5s;
+       animation-name: nav_buttons;
+     //  animation-direction: alternate;
+      // transition: width;
+      // transition: height;
+       }
 
+       @keyframes nav_buttons {
+       0% {transform: rotate(0deg); margin-left: 0%;}
+       10% {transform: rotate(36deg);}
+       20% {transform: rotate(72deg);}
+       30% {transform: rotate(108deg);}
+       40% {transform: rotate(144deg);}
+       50% {transform: rotate(180deg);}
+       60% {transform: rotate(216deg);}
+       70% {transform: rotate(252deg);}
+       80% {transform: rotate(288deg);}
+       90% {transform: rotate(324deg);}     
+      // 50% {width: 51px;}
+       //50% {height: 91px;}
+       100% {transform: rotate(360deg); margin-left: 0%;}
+       } 
 
 /* Nav Bar Title  ..........................*/
 .title a {
