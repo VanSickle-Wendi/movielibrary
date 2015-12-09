@@ -138,11 +138,60 @@ function displayMovies() {
 
 /***********************************************************************************
  * Add Movie
- * Author: Amy Williams
+ * Author: Brendon Moore
  * Adds a single movie object to the array of movies
  **********************************************************************************/
-function addMovie() {
+function addMovies() {
+    //var addMoviesForm = document.querySelector('form');
+    //formData = new FormData(addMoviesForm);
+    //document.getElementById("test").innerHTML = formData;   
+    
+    
 
+    var cboRating = document.getElementById('addRating');
+    var addRating = cboRating.options[cboRating.selectedIndex].value;
+    var cboGenre = document.getElementById('addGenre');
+    var addGenre = cboGenre.options[cboGenre.selectedIndex].value;
+    var addTitle = document.getElementById("addTitle").value;
+    var addYear = document.getElementById('addYear').value;
+
+    //open exising array
+   
+        
+    var savedArray = JSON.parse(localStorage.getItem("movieArray"));
+        
+   if (savedArray === null) {
+            savedArray = [];
+            savedArray.push({
+            title: addTitle,
+            year: addYear,
+            genre: addGenre,
+            rating: addRating
+             });
+            
+        }
+    else{
+     //test for duplicates and then add new item
+        if ( !(name in savedArray)){
+        savedArray.push({
+            title: addTitle,
+            year: addYear,
+            genre: addGenre,
+            rating: addRating
+             });
+        }
+    }
+ localStorage.setItem("movieArray", JSON.stringify(savedArray));
+ document.getElementById("addTitle").value = "";
+ document.getElementById("addYear").value = "";
+ document.getElementById('addGenre').value = "";
+ document.getElementById('addRating').value = "";
+
+ sortMovies();
+ 
+ 
+ 
+ 
 }
 
 /***********************************************************************************
