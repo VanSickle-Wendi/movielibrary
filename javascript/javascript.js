@@ -7,24 +7,26 @@ var arr = [];
 // The array of movies
 var movieArray;
 
-//send to search through ajax
+//send to search through local storage
 /***********************************************************************************
  * 
  **********************************************************************************/
-function searchInput(str) {
-    //Sending the input to search.php and retrieving the output...
-
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function ()
-    {
-        if (request.readyState == 4 && request.status == 200)
-        {
-            document.getElementById("results").innerHTML = request.responseText;
-        }
+//client search function
+   function myFunction() {   
+ 
+   var search1=document.getElementById("search").value  ; 
+   
+    var str = localStorage.getItem("movieArray");//this works
+    var n = str.search(search1);
+    
+      if (n <= -1) {
+        n = "This movie is not in your data base.";
+    } else {
+        n = "This movie is in your database.";
     }
-    request.open("GET", "search.php?str=" + str, true);//Sending input using get method...
-    request.send();
-}
+    document.getElementById("demo").innerHTML = n;
+
+    }
 
 /************************************************************************************
  * Movie
