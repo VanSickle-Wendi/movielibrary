@@ -36,6 +36,6 @@
                 <br>
                 </div> <!-- End mainContent -->
         </div> <!-- End Container -->        
-        <script>setup();</script>
+        <script></script>
     </body>
 </html>

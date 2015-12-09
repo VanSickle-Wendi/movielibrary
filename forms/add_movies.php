@@ -1,4 +1,5 @@
         <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen"/>
+         <script type="text/javascript" src="/javascript/javascript.js"></script>
         <h2>Add Movies</h2>
 
 <!-- Made form more responsive based on Tiffany's (table) form -->        
@@ -30,6 +31,8 @@
         </select><br><br>
  
         <button type="button" onclick="addMovies()">Submit</button><br>
+        <br>
+        <button type="button" onclick="loadSample()" id="btnLoad">Load Sample Movies</button><br>
         </form><br>     
 
         
@@ -39,60 +42,9 @@ if someone wants to figure out how to pull the form data to the array and local 
         <p id="test"></p>
 
 <script>
-    var formData = new FormData();
 
-function addMovies() {
-    var addMoviesForm = document.querySelector('form');
-    formData = new FormData(addMoviesForm);
-    document.getElementById("test").innerHTML = formData;   
-    
-    
-/***********************************************************************************
- * Add Movies
- * Author:  Brendon Moore
- * Add a movie to the array of movies
- **********************************************************************************/    
-    //Need to add 'if' statements to check for null values and return a message if true for any variable
-        
-    var cboRating = document.getElementById('addRating');
-    var addRating = cboRating.options[cboRating.selectedIndex].value;
-    var cboGenre = document.getElementById('addGenre');
-    var addGenre = cboGenre.options[cboGenre.selectedIndex].value;
-    var addTitle = document.getElementById("addTitle").value;
-    var addYear = document.getElementById('addYear').value;
- 
- //check if array is empty
-   if (JSON.parse(localStorage.getItem("movieArray")) === null) {
-    
-        var savedArray = [];
-    }
-    //open exising array
-    else {
-    var savedArray = JSON.parse(localStorage.getItem("movieArray"));
-        }
-   
-  
-   //test for duplictes and then add new item
-   if ( !(name in savedArray)){
-   savedArray.push({
-       title: addTitle,
-       year: addYear,
-       genre: addGenre,
-       rating: addRating
-        });
-   }
-   
- localStorage.setItem("movieArray", JSON.stringify(savedArray));
- document.getElementById("addTitle").value = "";
- document.getElementById("addYear").value = "";
- document.getElementById('addGenre').options[0].text = "";
- document.getElementById('addRating').options[0].text = "";
 
- 
- 
- 
- 
- 
-}
+
+
 
 </script>

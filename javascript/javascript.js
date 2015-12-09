@@ -59,9 +59,10 @@ Movie.prototype.display = function () {
  * getDataFromLocalStorage, displayMovies and putInLocalStorage.
  **********************************************************************************/
 function setup() {
-    loadSample();
+   // loadSample();
     getDataFromLocalStorage();
-    displayMovies();
+    //displayMovies();
+    sortMovies();
     putInLocalStorage();
 }
 
@@ -91,6 +92,8 @@ function loadSample() {
 
     text = JSON.stringify(arr);
     localStorage.setItem("movieArray", text);
+    sortMovies();
+    document.getElementById("btnLoad").style.visibility="hidden";
 }
 
 /***********************************************************************************
@@ -102,14 +105,15 @@ function getDataFromLocalStorage() {
 
     // Test for local storage
     if (typeof (Storage) !== "undefined")
-    {
-        // Put the array in local storage
-        localStorage.setItem("movieArray", text);
-
-        // Get the array from local storage
+   {
         var object = localStorage.getItem("movieArray");
-        // ***NOTE: movieArray is basically arr from above
-        movieArray = JSON.parse(object);
+        if (object === 'undefined') {
+            movieArray = [];
+        }
+        else{
+            // Get the array from local storage
+            movieArray = JSON.parse(object);
+        }
     } else
     {
         // TODO: Come up with a more elegant solution here
@@ -134,11 +138,60 @@ function displayMovies() {
 
 /***********************************************************************************
  * Add Movie
- * Author: Amy Williams
+ * Author: Brendon Moore
  * Adds a single movie object to the array of movies
  **********************************************************************************/
-function addMovie() {
+function addMovies() {
+    //var addMoviesForm = document.querySelector('form');
+    //formData = new FormData(addMoviesForm);
+    //document.getElementById("test").innerHTML = formData;   
+    
+    
 
+    var cboRating = document.getElementById('addRating');
+    var addRating = cboRating.options[cboRating.selectedIndex].value;
+    var cboGenre = document.getElementById('addGenre');
+    var addGenre = cboGenre.options[cboGenre.selectedIndex].value;
+    var addTitle = document.getElementById("addTitle").value;
+    var addYear = document.getElementById('addYear').value;
+
+    //open exising array
+   
+        
+    var savedArray = JSON.parse(localStorage.getItem("movieArray"));
+        
+   if (savedArray === null) {
+            savedArray = [];
+            savedArray.push({
+            title: addTitle,
+            year: addYear,
+            genre: addGenre,
+            rating: addRating
+             });
+            
+        }
+    else{
+     //test for duplicates and then add new item
+        if ( !(name in savedArray)){
+        savedArray.push({
+            title: addTitle,
+            year: addYear,
+            genre: addGenre,
+            rating: addRating
+             });
+        }
+    }
+ localStorage.setItem("movieArray", JSON.stringify(savedArray));
+ document.getElementById("addTitle").value = "";
+ document.getElementById("addYear").value = "";
+ document.getElementById('addGenre').value = "";
+ document.getElementById('addRating').value = "";
+
+ sortMovies();
+ 
+ 
+ 
+ 
 }
 
 /***********************************************************************************
@@ -148,6 +201,7 @@ function addMovie() {
  **********************************************************************************/
 function sortMovies() {
     //window.alert("in sorting function");
+    getDataFromLocalStorage();
     var origarray= "";
     var filteredobj = [];
     var cboRating = document.getElementById('userRating');
@@ -156,15 +210,16 @@ function sortMovies() {
     var userGenre = cboGenre.options[cboGenre.selectedIndex].value;
     
     //sort by year if button2(Alpha/Date Toggle) is checked, otherwise sort Alphabetically  
-    if (document.getElementById('button2').checked){
+    if (movieArray !== null){        
+            if (document.getElementById('button2').checked){
                             
-                            filteredobj = movieArray.sort(sortByYear);
-                        }
-                        else{
-                            filteredobj = movieArray.sort(sortByTitle);
-                            
-                        } 
-                        
+                filteredobj = movieArray.sort(sortByYear);
+            }
+            else{
+                filteredobj = movieArray.sort(sortByTitle);
+
+            } 
+    }
                         
     //puts sorted array into local storage
     localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
@@ -210,9 +265,9 @@ function sortMovies() {
         function sortByTitle(a, b) {
              var sortStatus = 0;
 
-                            if (a.title < b.title) {
+                            if (a.title.toLowerCase() < b.title.toLowerCase()) {
                                 sortStatus = -1;
-                            } else if (a.title > b.title) {
+                            } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
                                     sortStatus = 1;
                             }
                             return sortStatus;
