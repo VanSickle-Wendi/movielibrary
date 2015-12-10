@@ -13,6 +13,6 @@
           <li><p onclick="clearDivsAddMovies()">Add Movies</p></li>          
           <li><p onclick="clearDivsBrowseMovies()">Browse Movies</p></li>          
           <li><p onclick="clearDivsSearchResults()">Search Movies</p></li>
-          <li><input type="text" id="search" value="Search">
+          <li><input type="text" id="search" value="" placeholder="Search">
               <button onclick="myFunction()">Search</button><p id="demo"></p></li> 
       </ul> -->
