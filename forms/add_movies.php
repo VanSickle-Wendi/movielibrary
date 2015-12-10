@@ -36,15 +36,7 @@
         </form><br>     
 
         
-<!-- From here to the end is test code I can't get to work. Feel free to delete it
-if someone wants to figure out how to pull the form data to the array and local storage. Wendi -->
+
         
         <p id="test"></p>
 
-<script>
-
-
-
-
-
-</script>

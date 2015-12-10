@@ -72,6 +72,4 @@ document.getElementById("test3").innerHTML = test;
 </script>
 <!-- End Amy's Code ------------------------------------------------- -->
 
-</body>
-</html>
 

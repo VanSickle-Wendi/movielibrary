@@ -4,7 +4,7 @@
 
           <script type="text/javascript" src="/javascript/javascript.js"></script>
        
-<body>
+
 
 <h2>Search Movies</h2>
 <div id="searchForm">
@@ -14,7 +14,7 @@
 <p id="demo"></p>
 
 
-</body>
+
 
 
 
