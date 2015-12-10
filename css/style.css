@@ -14,9 +14,7 @@ div.container {
     height: auto;
     margin: 0 auto 1em auto;
     padding: 0;
-   // background-image: url("../images/container9.png");
-   // background-repeat: repeat-y;
-    border: 1px solid #424eed;
+    border: 1px solid #069;
     box-shadow: 0 0 5px #000;
 }
 div.mainContent {
@@ -79,26 +77,17 @@ div.mainContent {
 	color: #999;
 
 }
-/*#nav li input {
-        display: block;
-        height: 28px;
-        margin-top: 8px;
-        
-}*/
 #nav li img:hover {
 	background-color: #fff; 
         border-bottom: 1px solid #ccc;
 }
 
-       img {
+img {
        animation-duration: 1.5s;
        animation-name: nav_buttons;
-     //  animation-direction: alternate;
-      // transition: width;
-      // transition: height;
        }
 
-       @keyframes nav_buttons {
+@keyframes nav_buttons {
        0% {transform: rotate(0deg); margin-left: 0%;}
        10% {transform: rotate(36deg);}
        20% {transform: rotate(72deg);}
@@ -109,12 +98,10 @@ div.mainContent {
        70% {transform: rotate(252deg);}
        80% {transform: rotate(288deg);}
        90% {transform: rotate(324deg);}     
-      // 50% {width: 51px;}
-       //50% {height: 91px;}
        100% {transform: rotate(360deg); margin-left: 0%;}
-       } 
+} 
 
-/* Nav Bar Title  ..........................*/
+/*  Title  ..........................*/
 .title a {
         text-decoration: none;
 }
@@ -168,9 +155,7 @@ div.mainContent {
 
 .browseform {
     font-family: Arial, Helvetica,  sans-serif;
-   display: inline;
-   	
-
+    display: inline;
 }
 .browseform p{
     display: inline-block;
@@ -189,16 +174,14 @@ div.mainContent {
     margin-bottom: 0;
     margin-top: 5px;
     margin-left: -1px;
-    padding: 0px 4px;
-    
+    padding: 0px 4px;   
 }
 
 
 .tg-button {
     float: left;
     padding: 0;
-    margin-top: 5px;
-    
+    margin-top: 5px;   
 }
 .tg-button input {
     display:none;
@@ -215,8 +198,7 @@ div.mainContent {
     font-size: 13px;
     line-height: 18px;
     text-align: center;
-    vertical-align: middle;
-    
+    vertical-align: middle;    
 }
 .tg-button label:hover {
     color: #90ee90;
@@ -241,8 +223,7 @@ div.mainContent {
 
 .tg-button input:checked + label {
     background: #90ee90;
-    color: white;
-    
+    color: white;   
     -webkit-box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
     box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.15), 0 1px 2px  rgba(0, 0, 0, 0.05);
@@ -263,9 +244,9 @@ div.mainContent {
   -webkit-border-bottom-right-radius: 4px;
   -moz-border-radius-bottomright: 4px;
   border-bottom-right-radius: 4px;
-}/*End Brendosn's Browse you movie code ...................*/
+}/*End Brendosn's Browse your movie code ...................*/
 /*  Adding Amy's (table) style to form and making responsive */
-/* Form style for Phone ....................................... */ 
+/* Form style for Phone Wendi....................................... */ 
 @media only screen and (max-width: 600px) {   
 #addMoviesForm {
 	border: 1px solid #069;
@@ -289,18 +270,15 @@ div.mainContent {
 /* Browse Form ...................................*/
 .browsefilter{
     background-color:#eeeeee;
-    padding: 0px 15px 8px 0px;
+    padding: 0px 15px 8px 7px;
     border: 1px solid #069; 
     border-top: 5px solid #069;
-    width: 300px;
-    
+    width: 300px;   
 }
 
 .browseform {
     font-family: Arial, Helvetica,  sans-serif;
     display: inline;
-   	
-
 }
 .browseform p{
     display: inline-block;
@@ -311,9 +289,7 @@ div.mainContent {
     padding: 0px 4px 0px 0px;
     background-color: #f2f2f2;
     font-weight: bold;
-    color: #999;
-   
-    
+    color: #999;    
 }
 .browseform select{
     display: inline-block;
@@ -321,13 +297,9 @@ div.mainContent {
     margin-bottom: 0;
     margin-top: 5px;
     margin-left: -1px;
-    padding: 0px 4px;
-    
+    padding: 0px 4px;    
 }
-
-
-
-}
+}/*End Phone Specific Style .....................................*/
 /* Form style for tablet/desktop .................................*/
 @media only screen and (min-width: 601px) {
 #addMoviesForm {
@@ -352,7 +324,7 @@ div.mainContent {
 .addMoviesForm {
         font-size: 1.2em;
 }
-}
+} /*End Form for tablet/desktop ..............................*/
 /* Table Styling for Movie Table*/
 table, th, td {
 	border: 1px solid white;

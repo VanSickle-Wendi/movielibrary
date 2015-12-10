@@ -369,9 +369,9 @@ function clearDivsMovieLibrary() {
     var movieLibraryPage = new XMLHttpRequest();
     movieLibraryPage.onreadystatechange = function () {
       if (movieLibraryPage.readyState ===4 && movieLibraryPage.status ===200) { 
-    document.getElementById('searchResults').style.display = "none";
-    document.getElementById('addMovie').style.display = "none";
-    document.getElementById('browseMovies').style.display = "none"; 
+      document.getElementById('searchResults').style.display = "none";
+      document.getElementById('addMovie').style.display = "none";
+      document.getElementById('browseMovies').style.display = "none"; 
       document.getElementById('movieLibrary').innerHTML = movieLibraryPage.responseText;
       }
     };
@@ -392,10 +392,10 @@ function clearDivsBrowseMovies() {
     var browsePage = new XMLHttpRequest();
     browsePage.onreadystatechange = function () {
       if (browsePage.readyState ===4 && browsePage.status ===200) { 
-    document.getElementById('searchResults').style.display = "none";
-    document.getElementById('addMovie').style.display = "none";
-    document.getElementById('movieLibrary').style.display = "none";
-    document.getElementById('browseMovies').innerHTML = browsePage.responseText;
+      document.getElementById('searchResults').style.display = "none";
+      document.getElementById('addMovie').style.display = "none";
+      document.getElementById('movieLibrary').style.display = "none";
+      document.getElementById('browseMovies').innerHTML = browsePage.responseText;
       }
     };
     browsePage.open('GET', '../browse/browse.php', true);
