@@ -15,7 +15,11 @@ var movieArray;
    function myFunction() {   
  
    var search1=document.getElementById("search").value  ; 
-   
+    document.getElementById("demo").innerHTML = n;
+    if (search1.length <= 2) {
+        n = "Your search isn't specific enough. Try again.";         
+    } else {      
+    
     var str = localStorage.getItem("movieArray");//this works
     var n = str.search(search1);
     
@@ -23,10 +27,11 @@ var movieArray;
         n = "This movie is not in your data base.";
     } else {
         n = "This movie is in your database.";
-    }
+    }}
     document.getElementById("demo").innerHTML = n;
 
     }
+   
 
 /************************************************************************************
  * Movie
