@@ -7,9 +7,10 @@
 <body>
 
 <h2>Search Movies</h2>
+<div id="searchForm">
 <input type="text" id="search" value="Search">
 <button onclick="myFunction()">Search Your Movie Database</button>
-
+</div>
 <p id="demo"></p>
 
 

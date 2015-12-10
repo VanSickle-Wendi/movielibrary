@@ -157,15 +157,13 @@ div.mainContent {
     -moz-user-select: none;
     user-select: none;
 }
-/* Brendon's Browse your Movies on library.php */
+/* Brendon's Browse your Movies on browse.php */
 .browsefilter{
-    background-color:#f2f2f2;
-    padding: 0px 15px 8px;
-    border-color: black;
-    border: 5px;     
-    border-bottom: 1px solid #ccc; 
-    border-top: 5px solid #ccc; 
-    
+    background-color:#eeeeee;
+    padding: 0px 15px 8px;  
+    border: 1px solid #069; 
+    border-top: 5px solid #069;
+    width: 51%;   
 }
 
 .browseform {
@@ -183,9 +181,7 @@ div.mainContent {
     padding: 0px 4px;
     background-color: #f2f2f2;
     font-weight: bold;
-    color: #999;
-   
-    
+    color: #999;  
 }
 .browseform select{
     display: inline-block;
@@ -273,6 +269,7 @@ div.mainContent {
 @media only screen and (max-width: 600px) {   
 #addMoviesForm {
 	border: 1px solid #069;
+        border-top: 5px solid #069;        
 	background-color: #eeeeee;
 	padding: 7px;  
 	color: #069;   
@@ -280,16 +277,62 @@ div.mainContent {
 } 
 #searchForm {
 	border: 1px solid #069;
+        border-top: 5px solid #069;        
 	background-color: #eeeeee;
 	padding: 7px;  
 	color: #069;   
 	width: 300px;        
-} 
+}
+#search {
+        margin: 2px;
+}
+/* Browse Form ...................................*/
+.browsefilter{
+    background-color:#eeeeee;
+    padding: 0px 15px 8px 0px;
+    border: 1px solid #069; 
+    border-top: 5px solid #069;
+    width: 300px;
+    
+}
+
+.browseform {
+    font-family: Arial, Helvetica,  sans-serif;
+    display: inline;
+   	
+
+}
+.browseform p{
+    display: inline-block;
+    float: left;
+    margin-bottom: 0;
+    margin-top: 5px;
+    margin-left: -1px;
+    padding: 0px 4px 0px 0px;
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #999;
+   
+    
+}
+.browseform select{
+    display: inline-block;
+    float: left;
+    margin-bottom: 0;
+    margin-top: 5px;
+    margin-left: -1px;
+    padding: 0px 4px;
+    
+}
+
+
+
 }
 /* Form style for tablet/desktop .................................*/
 @media only screen and (min-width: 601px) {
 #addMoviesForm {
 	border: 1px solid #069;
+        border-top: 5px solid #069;       
 	background-color: #eeeeee;
 	padding: 20px;  
 	color: #069;   
@@ -297,10 +340,14 @@ div.mainContent {
 }
 #searchForm {
 	border: 1px solid #069;
+        border-top: 5px solid #069;        
 	background-color: #eeeeee;
-	padding: 20px;  
+	padding: 10px;  
 	color: #069;   
-	width: 50%;        
+	width: 52%;        
+}
+#search {
+        margin: 5px;
 }
 .addMoviesForm {
         font-size: 1.2em;

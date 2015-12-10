@@ -23,7 +23,7 @@
           <option value="R">R</option>
           <option value="Not Rated">Not Rated</option>    
           
-        </select> 
+</select>
 
 <select id="userGenre" onchange="sortMovies()">
           <option value="Genre" >Genre</option>
