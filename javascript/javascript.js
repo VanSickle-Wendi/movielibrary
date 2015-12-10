@@ -12,26 +12,27 @@ var movieArray;
  * 
  **********************************************************************************/
 //client search function
-   function myFunction() {   
- 
-   var search1=document.getElementById("search").value  ; 
+function myFunction() {
+
+    var search1 = document.getElementById("search").value;
     document.getElementById("demo").innerHTML = n;
     if (search1.length <= 2) {
-        n = "Your search isn't specific enough. Try again.";         
-    } else {      
-    
-    var str = localStorage.getItem("movieArray");//this works
-    var n = str.search(search1);
-    
-      if (n <= -1) {
-        n = "This movie is not in your data base.";
+        n = "Your search isn't specific enough. Try again.";
     } else {
-        n = "This movie is in your database.";
-    }}
+
+        var str = localStorage.getItem("movieArray");//this works
+        var n = str.search(search1);
+
+        if (n <= -1) {
+            n = "This movie is not in your database.";
+        } else {
+            n = "This movie is in your database.";
+        }
+    }
     document.getElementById("demo").innerHTML = n;
 
-    }
-   
+}
+
 
 /************************************************************************************
  * Movie
@@ -64,13 +65,34 @@ Movie.prototype.display = function () {
  * getDataFromLocalStorage, displayMovies and putInLocalStorage.
  **********************************************************************************/
 function setup() {
-   // loadSample();
+    // loadSample();
     getDataFromLocalStorage();
+    
+    // Display a welcome message
+    if (movieArray.size === 0) {
+        displayMessage();
+    }
+    
     //displayMovies();
     sortMovies();
     putInLocalStorage();
 }
 
+/***********************************************************************************
+ * Display Message
+ * Author: Amy Williams
+ * Displays a welcome message if the library is empty
+ **********************************************************************************/
+function displayMessage() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            document.getElementById('message').innerHTML = request.responseText;
+        }
+    };
+    request.open('GET', '../text/welcome.json', true);
+    request.send();
+}
 /***********************************************************************************
  * Load Sample
  * Author: Amy Williams
@@ -98,7 +120,7 @@ function loadSample() {
     text = JSON.stringify(arr);
     localStorage.setItem("movieArray", text);
     sortMovies();
-    document.getElementById("btnLoad").style.visibility="hidden";
+    document.getElementById("btnLoad").style.visibility = "hidden";
 }
 
 /***********************************************************************************
@@ -110,12 +132,11 @@ function getDataFromLocalStorage() {
 
     // Test for local storage
     if (typeof (Storage) !== "undefined")
-   {
+    {
         var object = localStorage.getItem("movieArray");
         if (object === 'undefined') {
             movieArray = [];
-        }
-        else{
+        } else {
             // Get the array from local storage
             movieArray = JSON.parse(object);
         }
@@ -150,8 +171,8 @@ function addMovies() {
     //var addMoviesForm = document.querySelector('form');
     //formData = new FormData(addMoviesForm);
     //document.getElementById("test").innerHTML = formData;   
-    
-    
+
+
 
     var cboRating = document.getElementById('addRating');
     var addRating = cboRating.options[cboRating.selectedIndex].value;
@@ -161,42 +182,41 @@ function addMovies() {
     var addYear = document.getElementById('addYear').value;
 
     //open exising array
-   
-        
+
+
     var savedArray = JSON.parse(localStorage.getItem("movieArray"));
-        
-   if (savedArray === null) {
-            savedArray = [];
-            savedArray.push({
-            title: addTitle,
-            year: addYear,
-            genre: addGenre,
-            rating: addRating
-             });
-            
-        }
-    else{
-     //test for duplicates and then add new item
-        if ( !(name in savedArray)){
+
+    if (savedArray === null) {
+        savedArray = [];
         savedArray.push({
             title: addTitle,
             year: addYear,
             genre: addGenre,
             rating: addRating
-             });
+        });
+
+    } else {
+        //test for duplicates and then add new item
+        if (!(name in savedArray)) {
+            savedArray.push({
+                title: addTitle,
+                year: addYear,
+                genre: addGenre,
+                rating: addRating
+            });
         }
     }
- localStorage.setItem("movieArray", JSON.stringify(savedArray));
- document.getElementById("addTitle").value = "";
- document.getElementById("addYear").value = "";
- document.getElementById('addGenre').value = "";
- document.getElementById('addRating').value = "";
+    localStorage.setItem("movieArray", JSON.stringify(savedArray));
+    document.getElementById("addTitle").value = "";
+    document.getElementById("addYear").value = "";
+    document.getElementById('addGenre').value = "";
+    document.getElementById('addRating').value = "";
 
- sortMovies();
- 
- 
- 
- 
+    sortMovies();
+
+
+
+
 }
 
 /***********************************************************************************
@@ -207,96 +227,95 @@ function addMovies() {
 function sortMovies() {
     //window.alert("in sorting function");
     getDataFromLocalStorage();
-    var origarray= "";
+    var origarray = "";
     var filteredobj = [];
     var cboRating = document.getElementById('userRating');
     var userRating = cboRating.options[cboRating.selectedIndex].value;
     var cboGenre = document.getElementById('userGenre');
     var userGenre = cboGenre.options[cboGenre.selectedIndex].value;
-    
-    //sort by year if button2(Alpha/Date Toggle) is checked, otherwise sort Alphabetically  
-    if (movieArray !== null){        
-            if (document.getElementById('button2').checked){
-                            
-                filteredobj = movieArray.sort(sortByYear);
-            }
-            else{
-                filteredobj = movieArray.sort(sortByTitle);
 
-            } 
+    //sort by year if button2(Alpha/Date Toggle) is checked, otherwise sort Alphabetically  
+    if (movieArray !== null) {
+        if (document.getElementById('button2').checked) {
+
+            filteredobj = movieArray.sort(sortByYear);
+        } else {
+            filteredobj = movieArray.sort(sortByTitle);
+
+        }
     }
-                        
+
     //puts sorted array into local storage
     localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
 
     //Filter by Rating
-    if (userRating !== "Rating"){
-        
+    if (userRating !== "Rating") {
+
         var moviearray2 = localStorage.getItem("sortedArray");
 
         var obj = JSON.parse(moviearray2);
 
-        
-        var filteredobj = [];
-             for (var i = j = 0; i < obj.length; i++) {
-                    if (obj[i].rating === userRating){
-                    filteredobj[j++]=obj[i];
 
-                     }                         
-             }
-             document.getElementById('userRating').options[0].text = "None";
-             localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
-         }
+        var filteredobj = [];
+        for (var i = j = 0; i < obj.length; i++) {
+            if (obj[i].rating === userRating) {
+                filteredobj[j++] = obj[i];
+
+            }
+        }
+        document.getElementById('userRating').options[0].text = "None";
+        localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
+    }
     //Filter by Genre
-    if (userGenre !== "Genre"){
-        
+    if (userGenre !== "Genre") {
+
         var moviearray3 = localStorage.getItem("sortedArray");
 
         var obj = JSON.parse(moviearray3);
 
-        
+
         var filteredobj = [];
-             for (var i = j = 0; i < obj.length; i++) {
-                    if (obj[i].genre === userGenre){
-                    filteredobj[j++]=obj[i];
+        for (var i = j = 0; i < obj.length; i++) {
+            if (obj[i].genre === userGenre) {
+                filteredobj[j++] = obj[i];
 
-                     }                         
-             }
-             document.getElementById('userGenre').options[0].text = "None";
-             localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
-         }
-                                     
-                        
-        function sortByTitle(a, b) {
-             var sortStatus = 0;
-
-                            if (a.title.toLowerCase() < b.title.toLowerCase()) {
-                                sortStatus = -1;
-                            } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
-                                    sortStatus = 1;
-                            }
-                            return sortStatus;
+            }
         }
-        function sortByYear(a, b) {
-                        
-                        return new Date(b.year) - new Date(a.year);
-                    } 
-    
+        document.getElementById('userGenre').options[0].text = "None";
+        localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
+    }
 
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+
+    function sortByTitle(a, b) {
+        var sortStatus = 0;
+
+        if (a.title.toLowerCase() < b.title.toLowerCase()) {
+            sortStatus = -1;
+        } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
+            sortStatus = 1;
+        }
+        return sortStatus;
+    }
+    function sortByYear(a, b) {
+
+        return new Date(b.year) - new Date(a.year);
+    }
+
+
+
+
+
+
+
+
+
     var test2 = "<table><tr><th>Title</th><th>Year</th><th>Rating</th><th>Genre</th></tr>";
     for (var i = 0; i < filteredobj.length; i++) {
         test2 += "<tr>";
         test2 += "<td>" + filteredobj[i].title + "</td><td>" + filteredobj[i].year + "</td><td>" + filteredobj[i].rating + "</td><td>" + filteredobj[i].genre + "</td></tr>";
     }
     document.getElementById("movieTable").innerHTML = test2;
-    
+
 }
 
 /***********************************************************************************
@@ -321,21 +340,21 @@ function putInLocalStorage() {
  **********************************************************************************/
 
 function clearDivsSearchResults() {
-    document.getElementById('searchResults').style.display = "initial";    
+    document.getElementById('searchResults').style.display = "initial";
     document.getElementById('addMovie').style.display = "initial";
     document.getElementById('movieLibrary').style.display = "initial";
-    document.getElementById('browseMovies').style.display = "initial";     
+    document.getElementById('browseMovies').style.display = "initial";
     var searchPage = new XMLHttpRequest();
     searchPage.onreadystatechange = function () {
-      if (searchPage.readyState ===4 && searchPage.status ===200) {
-        document.getElementById('addMovie').style.display = "none";
-        document.getElementById('movieLibrary').style.display = "none";
-        document.getElementById('browseMovies').style.display = "none";  
-        document.getElementById('searchResults').innerHTML = searchPage.responseText;
-      }
+        if (searchPage.readyState === 4 && searchPage.status === 200) {
+            document.getElementById('addMovie').style.display = "none";
+            document.getElementById('movieLibrary').style.display = "none";
+            document.getElementById('browseMovies').style.display = "none";
+            document.getElementById('searchResults').innerHTML = searchPage.responseText;
+        }
     };
     searchPage.open('GET', '../search/search.php', true);
-      searchPage.send();
+    searchPage.send();
 }
 /***********************************************************************************
  * Display Add Movie Form alone
@@ -344,22 +363,22 @@ function clearDivsSearchResults() {
  *
  **********************************************************************************/
 function clearDivsAddMovies() {
-    document.getElementById('searchResults').style.display = "initial";    
+    document.getElementById('searchResults').style.display = "initial";
     document.getElementById('addMovie').style.display = "initial";
     document.getElementById('movieLibrary').style.display = "initial";
-    document.getElementById('browseMovies').style.display = "initial";      
+    document.getElementById('browseMovies').style.display = "initial";
     var addMoviesPage = new XMLHttpRequest();
     addMoviesPage.onreadystatechange = function () {
-      if (addMoviesPage.readyState ===4 && addMoviesPage.status ===200) { 
-      document.getElementById('searchResults').style.display = "none";
-      document.getElementById('movieLibrary').style.display = "none";
-      document.getElementById('browseMovies').style.display = "none";    
-      document.getElementById('addMovie').innerHTML = addMoviesPage.responseText;
-      }
+        if (addMoviesPage.readyState === 4 && addMoviesPage.status === 200) {
+            document.getElementById('searchResults').style.display = "none";
+            document.getElementById('movieLibrary').style.display = "none";
+            document.getElementById('browseMovies').style.display = "none";
+            document.getElementById('addMovie').innerHTML = addMoviesPage.responseText;
+        }
     };
     addMoviesPage.open('GET', '../forms/add_movies.php', true);
-      addMoviesPage.send();
-    }
+    addMoviesPage.send();
+}
 /***********************************************************************************
  * Display Movie Library alone
  * Author: Wendi Van Sickle
@@ -367,43 +386,43 @@ function clearDivsAddMovies() {
  *
  **********************************************************************************/
 function clearDivsMovieLibrary() {
-    document.getElementById('searchResults').style.display = "initial";   
+    document.getElementById('searchResults').style.display = "initial";
     document.getElementById('addMovie').style.display = "initial";
     document.getElementById('movieLibrary').style.display = "initial";
-    document.getElementById('browseMovies').style.display = "initial";     
+    document.getElementById('browseMovies').style.display = "initial";
     var movieLibraryPage = new XMLHttpRequest();
     movieLibraryPage.onreadystatechange = function () {
-      if (movieLibraryPage.readyState ===4 && movieLibraryPage.status ===200) { 
-      document.getElementById('searchResults').style.display = "none";
-      document.getElementById('addMovie').style.display = "none";
-      document.getElementById('browseMovies').style.display = "none"; 
-      document.getElementById('movieLibrary').innerHTML = movieLibraryPage.responseText;
-      }
+        if (movieLibraryPage.readyState === 4 && movieLibraryPage.status === 200) {
+            document.getElementById('searchResults').style.display = "none";
+            document.getElementById('addMovie').style.display = "none";
+            document.getElementById('browseMovies').style.display = "none";
+            document.getElementById('movieLibrary').innerHTML = movieLibraryPage.responseText;
+        }
     };
     movieLibraryPage.open('GET', '../library/library.php', true);
-      movieLibraryPage.send();
-}   
- /***********************************************************************************
+    movieLibraryPage.send();
+}
+/***********************************************************************************
  * Display Browse Movies form alone
  * Author: Wendi Van Sickle
  * Clears all divs on index page except browse movies form 
  * 
  **********************************************************************************/
 function clearDivsBrowseMovies() {
-    document.getElementById('searchResults').style.display = "initial";   
+    document.getElementById('searchResults').style.display = "initial";
     document.getElementById('addMovie').style.display = "initial";
     document.getElementById('movieLibrary').style.display = "initial";
-    document.getElementById('browseMovies').style.display = "initial";     
+    document.getElementById('browseMovies').style.display = "initial";
     var browsePage = new XMLHttpRequest();
     browsePage.onreadystatechange = function () {
-      if (browsePage.readyState ===4 && browsePage.status ===200) { 
-      document.getElementById('searchResults').style.display = "none";
-      document.getElementById('addMovie').style.display = "none";
-      document.getElementById('movieLibrary').style.display = "none";
-      document.getElementById('browseMovies').innerHTML = browsePage.responseText;
-      }
+        if (browsePage.readyState === 4 && browsePage.status === 200) {
+            document.getElementById('searchResults').style.display = "none";
+            document.getElementById('addMovie').style.display = "none";
+            document.getElementById('movieLibrary').style.display = "none";
+            document.getElementById('browseMovies').innerHTML = browsePage.responseText;
+        }
     };
     browsePage.open('GET', '../browse/browse.php', true);
-      browsePage.send();
-}    
+    browsePage.send();
+}
 /* End clearDivs functions */
