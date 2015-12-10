@@ -4,16 +4,21 @@
 <div class="browsefilter">
     
 <form class="browseform">
-    <p>Sort:</p>
+    <p>Sort by:</p>
     <div class="tg-button">
         <input type="radio" name="tg" id="button1" onchange="sortMovies()" checked>
-        <label for="button1" unselectable>Alpha</label>
+        <label for="button1" unselectable id="titleButton">Title</label>
     </div>
     <div class="tg-button">
         <input type="radio" name="tg" id="button2" onchange="sortMovies()">
-        <label for="button2" unselectable>Year</label>
+        <label for="button2" unselectable id="yearButton">Year Released</label>
     </div>
-    <p>  | Filter by:</p>
+</form><br>
+</div>
+<div class="browsefilter2">
+    
+<form class="browseform">
+    <p>Filter by:</p>
 <select id="userRating" onchange="sortMovies()">
     
           <option value="Rating">Rating</option>
@@ -35,7 +40,7 @@
         </select> 
 </form>
 <br>
-
 </div>
+
 <!-- End Brendon's Code -------------------------------------------------- -->
 
