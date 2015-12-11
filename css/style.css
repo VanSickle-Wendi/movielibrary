@@ -22,40 +22,7 @@ div.container {
 div.mainContent {
     padding: 1em;    
 }
-/* Nav2 Bar ...............................*/
-#nav2 {
-	width: 100%;
-        height: 49px;
-	float: left;
-	margin: 0 0 3em 0;
-	padding: 0;
-	list-style-type: none;
-	background-color: #f2f2f2;
-	border-bottom: 1px solid #ccc; 
-	border-top: 1px solid #ccc; 
-}
-#nav2 li {
-	float: left; 
-}
-#nav2 li p {
-	display: block;
-        padding: 2px 15px 4px 15px;
-	font-weight: bold;
-	color: #999;
-	border-right: 1px solid #ccc; 
-}
-#nav2 li input {
-        display: block;
-        height: 28px;
-        margin-top: 8px;
-        
-}
-#nav2 li p:hover {
-	color: #90ee90;
-	background-color: #fff; 
-}
-
-/* Animated Buttons (Wendi) ................................*/
+/* Animated Buttons for Navigation (Wendi, started with Amy's CSS for Nav Bar)....*/
 
 #nav {
 	width: 100%;
@@ -70,24 +37,30 @@ div.mainContent {
 }
 #nav li {
 	float: left; 
-	border-right: 1px solid #ccc;         
+	border-right: 1px solid #ccc;   
 }
 #nav li img {
 	display: block;
         padding: 2px 15px 4px 15px;
-	font-weight: bold;
-	color: #999;
+        animation-duration: 1.5s;
+        animation-name: nav_buttons;        
+              
+        -webkit-transition: -webkit-transform .8s ease-in-out;
+        -moz-transition: -webkit-transform .8s ease-in-out;
+        -o-transition: -webkit-transform .8s ease-in-out;
+        -webkit-transition: -webkit-transform .8s ease-in-out;
 
 }
-#nav li img:hover {
-	background-color: #fff; 
-        border-bottom: 1px solid #ccc;
+#nav li:hover {
+    	background-color: #fff;  
+        border-bottom: 1px solid #ccc;        
 }
-
-img {
-       animation-duration: 1.5s;
-       animation-name: nav_buttons;
-       }
+#nav li img:hover {        
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);        
+}
 
 @keyframes nav_buttons {
        0% {transform: rotate(0deg); margin-left: 0%;}
