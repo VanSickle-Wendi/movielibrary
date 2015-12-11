@@ -339,3 +339,6 @@ tr:hover {
 	color: black;
 	background-color: #fff; 
 }
+#movieLibraryTable table, th  {
+       border-top: 5px solid #069;  
+}
