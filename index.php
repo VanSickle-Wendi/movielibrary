@@ -27,12 +27,15 @@
                     <?php include $_SERVER['DOCUMENT_ROOT'] . '/browse/browse.php'; ?> 
                 </div>
                 
+                 <p id="movieTable">Movie Table:</p>
+                <br>
+                
                 <!-- Content for Search results ---------------------------------->        
                 <div id="searchResults">               
                     <?php include $_SERVER['DOCUMENT_ROOT'] . '/search/search.php'; ?>
                 </div>
                 
-                <p id="movieTable">Movie Table:</p>
+               <!-- <p id="movieTable">Movie Table:</p>-->
                 <br>
                 </div> <!-- End mainContent -->
         </div> <!-- End Container -->        
