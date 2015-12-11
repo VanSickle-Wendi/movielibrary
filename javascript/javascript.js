@@ -69,7 +69,7 @@ function setup() {
     getDataFromLocalStorage();
     
     // Display a welcome message
-    if (movieArray.size === 0) {
+    if (!movieArray) {
         displayMessage();
     }
     
