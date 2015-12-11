@@ -14,6 +14,8 @@ div.container {
     height: auto;
     margin: 0 auto 1em auto;
     padding: 0;
+    background-image: url("../images/container.png");
+    background-repeat: repeat-y;    
     border: 1px solid #069;
     box-shadow: 0 0 5px #000;
 }
