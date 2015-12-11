@@ -15,8 +15,11 @@
                 <!-- Content for viewing Movie Library -------------------------->
                 <div id="movieLibrary">     
                     <?php include $_SERVER['DOCUMENT_ROOT'] . '/library/library.php'; ?> 
-                </div>                
-   
+                </div>   
+
+                <!-- Placeholder for welcome message and instructions -->
+                <p id="message"></p>
+
                 <!-- Content for Adding New Movies ------------------------------>  
                 <div id="addMovie">              
                     <?php include $_SERVER['DOCUMENT_ROOT'] . '/forms/add_movies.php'; ?> 
