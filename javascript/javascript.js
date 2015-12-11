@@ -344,6 +344,77 @@ function clearDivsSearchResults() {
     document.getElementById('addMovie').style.display = "initial";
     document.getElementById('movieLibrary').style.display = "initial";
     document.getElementById('browseMovies').style.display = "initial";
+
+            document.getElementById('addMovie').style.display = "none";
+            document.getElementById('movieLibrary').style.display = "none";
+            document.getElementById('browseMovies').style.display = "none";
+
+}
+/***********************************************************************************
+ * Display Add Movie Form alone
+ * Author: Wendi Van Sickle
+ * Clears all divs on index page except add movie form 
+ *
+ **********************************************************************************/
+function clearDivsAddMovies() {
+    document.getElementById('searchResults').style.display = "initial";
+    document.getElementById('addMovie').style.display = "initial";
+    document.getElementById('movieLibrary').style.display = "initial";
+    document.getElementById('browseMovies').style.display = "initial";
+
+            document.getElementById('searchResults').style.display = "none";
+            document.getElementById('movieLibrary').style.display = "none";
+            document.getElementById('browseMovies').style.display = "none";
+
+}
+/***********************************************************************************
+ * Display Movie Library alone
+ * Author: Wendi Van Sickle
+ * Clears all divs on index page except movie library form 
+ *
+ **********************************************************************************/
+function clearDivsMovieLibrary() {
+    document.getElementById('searchResults').style.display = "initial";
+    document.getElementById('addMovie').style.display = "initial";
+    document.getElementById('movieLibrary').style.display = "initial";
+    document.getElementById('browseMovies').style.display = "initial";
+
+            document.getElementById('searchResults').style.display = "none";
+            document.getElementById('addMovie').style.display = "none";
+            document.getElementById('browseMovies').style.display = "none";
+}
+/***********************************************************************************
+ * Display Browse Movies form alone
+ * Author: Wendi Van Sickle
+ * Clears all divs on index page except browse movies form 
+ * 
+ **********************************************************************************/
+function clearDivsBrowseMovies() {
+    document.getElementById('searchResults').style.display = "initial";
+    document.getElementById('addMovie').style.display = "initial";
+    document.getElementById('movieLibrary').style.display = "initial";
+    document.getElementById('browseMovies').style.display = "initial";
+
+            document.getElementById('searchResults').style.display = "none";
+            document.getElementById('addMovie').style.display = "none";
+            document.getElementById('movieLibrary').style.display = "none";
+
+}
+
+/* Test Functions for clearing other divs. This may be included in AJAX code*/
+
+/***********************************************************************************
+ * Display Search Results alone
+ * Author: Wendi Van Sickle
+ * Clears all divs on index page except search results 
+ *
+ **********************************************************************************/
+
+/*function clearDivsSearchResults() {
+    document.getElementById('searchResults').style.display = "initial";
+    document.getElementById('addMovie').style.display = "initial";
+    document.getElementById('movieLibrary').style.display = "initial";
+    document.getElementById('browseMovies').style.display = "initial";
     var searchPage = new XMLHttpRequest();
     searchPage.onreadystatechange = function () {
         if (searchPage.readyState === 4 && searchPage.status === 200) {
@@ -355,14 +426,14 @@ function clearDivsSearchResults() {
     };
     searchPage.open('GET', '../search/search.php', true);
     searchPage.send();
-}
+}*/
 /***********************************************************************************
  * Display Add Movie Form alone
  * Author: Wendi Van Sickle
  * Clears all divs on index page except add movie form 
  *
  **********************************************************************************/
-function clearDivsAddMovies() {
+/*function clearDivsAddMovies() {
     document.getElementById('searchResults').style.display = "initial";
     document.getElementById('addMovie').style.display = "initial";
     document.getElementById('movieLibrary').style.display = "initial";
@@ -378,14 +449,14 @@ function clearDivsAddMovies() {
     };
     addMoviesPage.open('GET', '../forms/add_movies.php', true);
     addMoviesPage.send();
-}
+}*/
 /***********************************************************************************
  * Display Movie Library alone
  * Author: Wendi Van Sickle
  * Clears all divs on index page except movie library form 
  *
  **********************************************************************************/
-function clearDivsMovieLibrary() {
+/*function clearDivsMovieLibrary() {
     document.getElementById('searchResults').style.display = "initial";
     document.getElementById('addMovie').style.display = "initial";
     document.getElementById('movieLibrary').style.display = "initial";
@@ -401,14 +472,14 @@ function clearDivsMovieLibrary() {
     };
     movieLibraryPage.open('GET', '../library/library.php', true);
     movieLibraryPage.send();
-}
+}*/
 /***********************************************************************************
  * Display Browse Movies form alone
  * Author: Wendi Van Sickle
  * Clears all divs on index page except browse movies form 
  * 
  **********************************************************************************/
-function clearDivsBrowseMovies() {
+/*function clearDivsBrowseMovies() {
     document.getElementById('searchResults').style.display = "initial";
     document.getElementById('addMovie').style.display = "initial";
     document.getElementById('movieLibrary').style.display = "initial";
@@ -424,5 +495,5 @@ function clearDivsBrowseMovies() {
     };
     browsePage.open('GET', '../browse/browse.php', true);
     browsePage.send();
-}
+}*/
 /* End clearDivs functions */
