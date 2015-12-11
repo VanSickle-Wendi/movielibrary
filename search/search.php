@@ -12,7 +12,7 @@
 <button onclick="myFunction()">Search Your Movie Database</button>
 </div>
 <p id="demo"></p>
-
+<p id="movieSearchTable"></p>
 
 
 

@@ -40,6 +40,7 @@
         </select> 
 </form>
 <br>
+<p id="movieTable">Movie Table:</p>
 </div>
 
 <!-- End Brendon's Code -------------------------------------------------- -->

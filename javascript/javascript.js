@@ -14,19 +14,23 @@ var movieArray;
 //client search function
 function myFunction() {
 
-    var search1 = document.getElementById("search").value;
+    var search1 = document.getElementById("search").value.toLowerCase();
     document.getElementById("demo").innerHTML = n;
     if (search1.length <= 2) {
         n = "Your search isn't specific enough. Try again.";
+        document.getElementById("movieSearchTable").innerHTML = "";
     } else {
 
         var str = localStorage.getItem("movieArray");//this works
-        var n = str.search(search1);
+        var strLower = str.toLowerCase();
+        var n = strLower.search(search1);
 
         if (n <= -1) {
             n = "This movie is not in your database.";
+            document.getElementById("movieSearchTable").innerHTML = "";
         } else {
-            n = "This movie is in your database.";
+            n = "Search Results:" ;
+            foundMovies();
         }
     }
     document.getElementById("demo").innerHTML = n;
@@ -73,7 +77,7 @@ function setup() {
         displayMessage();
     }
     
-    //displayMovies();
+    displayMovies();
     sortMovies();
     putInLocalStorage();
 }
@@ -140,6 +144,15 @@ function getDataFromLocalStorage() {
             // Get the array from local storage
             movieArray = JSON.parse(object);
         }
+        
+        var sortedobject = localStorage.getItem("sortedArray");
+        if (sortedobject === 'undefined') {
+            sortedArray = [];
+        } else {
+            // Get the array from local storage
+            sortedArray = JSON.parse(sortedobject);
+        }
+        
     } else
     {
         // TODO: Come up with a more elegant solution here
@@ -153,13 +166,15 @@ function getDataFromLocalStorage() {
  * Displays all of the movies in the movie array in a formatted table
  **********************************************************************************/
 function displayMovies() {
-    var test = "<table><tr><th>Title</th><th>Year</th><th>Genre</th><th>Rating</th></tr>";
-    for (var i = 0; i < movieArray.length; i++) {
-        test += "<tr>"
-        test += "<td>" + movieArray[i].title + "</td><td>" + movieArray[i].year + "</td><td>" + movieArray[i].rating + "</td><td>" + movieArray[i].genre + "</td></tr>";
+    getDataFromLocalStorage();
+    if (sortedArray !== null) {
+    var displayArray = "<table><tr><th>Title</th><th>Year</th><th>Rating</th><th>Genre</th></tr>";
+    for (var i = 0; i < sortedArray.length; i++) {
+        displayArray += "<tr>";
+        displayArray += "<td>" + sortedArray[i].title + "</td><td>" + sortedArray[i].year + "</td><td>" + sortedArray[i].rating + "</td><td>" + sortedArray[i].genre + "</td></tr>";
     }
-    document.getElementById("movieTable").innerHTML = test;
-    document.getElementById("test35").innerHTML = test;
+    document.getElementById("movieLibraryTable").innerHTML = displayArray;
+    }
 }
 
 /***********************************************************************************
@@ -301,14 +316,6 @@ function sortMovies() {
         return new Date(b.year) - new Date(a.year);
     }
 
-
-
-
-
-
-
-
-
     var test2 = "<table><tr><th>Title</th><th>Year</th><th>Rating</th><th>Genre</th></tr>";
     for (var i = 0; i < filteredobj.length; i++) {
         test2 += "<tr>";
@@ -317,7 +324,62 @@ function sortMovies() {
     document.getElementById("movieTable").innerHTML = test2;
 
 }
+/***********************************************************************************
+ * Found Movies
+ * Author: Brendon Moore
+ * Displays the results of the search function
+ **********************************************************************************/
+function foundMovies(){
+   // window.alert("IN foundMovies");
+    getDataFromLocalStorage();
+    var origarray = "";
+    var filteredobj = [];
+    var userSearch = document.getElementById('search').value.toLowerCase();
+    
+    filteredobj = movieArray.sort(sortByTitle);
 
+    //puts sorted array into local storage
+    localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
+
+    //Filter by Rating
+    
+
+        var moviearray2 = localStorage.getItem("sortedArray");
+
+        var obj = JSON.parse(moviearray2);
+
+
+        var filteredobj = [];
+        for (var i = j = 0; i < obj.length; i++) {
+            //if (obj[i].rating === userSearch) {
+            var t = obj[i].title.toLowerCase();
+            
+            if (!t.indexOf(userSearch)){
+                
+               filteredobj[j++] = obj[i];
+           }
+        }
+        document.getElementById('search').value = "";
+        localStorage.setItem("sortedArray", JSON.stringify(filteredobj));
+    
+   
+    var test2 = "<table><tr><th>Title</th><th>Year</th><th>Rating</th><th>Genre</th></tr>";
+    for (var i = 0; i < filteredobj.length; i++) {
+        test2 += "<tr>";
+        test2 += "<td>" + filteredobj[i].title + "</td><td>" + filteredobj[i].year + "</td><td>" + filteredobj[i].rating + "</td><td>" + filteredobj[i].genre + "</td></tr>";
+    }
+    document.getElementById("movieSearchTable").innerHTML = test2;
+    function sortByTitle(a, b) {
+        var sortStatus = 0;
+
+        if (a.title.toLowerCase() < b.title.toLowerCase()) {
+            sortStatus = -1;
+        } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
+            sortStatus = 1;
+        }
+        return sortStatus;
+    }
+}
 /***********************************************************************************
  * Put In Local Storage
  * Author: Amy Williams
@@ -382,6 +444,7 @@ function clearDivsMovieLibrary() {
             document.getElementById('searchResults').style.display = "none";
             document.getElementById('addMovie').style.display = "none";
             document.getElementById('browseMovies').style.display = "none";
+            displayMovies();
 }
 /***********************************************************************************
  * Display Browse Movies form alone

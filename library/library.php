@@ -1,6 +1,9 @@
 <!--<link href="/css/style.css" type="text/css" rel="stylesheet" media="screen"/>-->
 
      <h2>Movie Library</h2>
+     
+     <p id="movieLibraryTable">Movie Library Table:</p>
+     
 <!--      Test 1: <p id="test1"></p>
       Test 2: <p id="test2"></p>
       Test 3: <p id="test35"></p>      -->

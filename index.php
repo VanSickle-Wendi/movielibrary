@@ -30,7 +30,6 @@
                     <?php include $_SERVER['DOCUMENT_ROOT'] . '/browse/browse.php'; ?> 
                 </div>
                 
-                 <p id="movieTable">Movie Table:</p>
                 <br>
                 
                 <!-- Content for Search results ---------------------------------->        
