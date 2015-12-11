@@ -67,6 +67,7 @@ Movie.prototype.display = function () {
  * Author: Amy Williams
  * Called on document load. Sets up the page by calling loadSample, 
  * getDataFromLocalStorage, displayMovies and putInLocalStorage.
+ * Added clearDivsBrowseMovies so only the Movie Library will show on load. Wendi
  **********************************************************************************/
 function setup() {
     // loadSample();
@@ -80,6 +81,7 @@ function setup() {
     displayMovies();
     sortMovies();
     putInLocalStorage();
+    clearDivsBrowseMovies()
 }
 
 /***********************************************************************************
@@ -94,7 +96,7 @@ function displayMessage() {
             document.getElementById('message').innerHTML = request.responseText;
         }
     };
-    request.open('GET', '../text/welcome.json', true);
+    request.open('GET', '../text/welcome.php', true);
     request.send();
 }
 /***********************************************************************************
